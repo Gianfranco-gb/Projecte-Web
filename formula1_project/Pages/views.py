@@ -3,18 +3,26 @@ from django.shortcuts import render, HttpResponse
 # Create your views here.
 def Inicio(request):
 
-    print("gdsfsd")
+    #print("gdsfsd")
     return HttpResponse("Inicio")
 
-def Pilotos(request):
+def Drivers(request):
 
-    return HttpResponse("Pilotos")
+    return HttpResponse("Drivers")
 
-def Carreras(request):
+def Circuits(request):
 
     return HttpResponse("Carreras")
 
-def Calendario(request):
+def Seasons(request):
 
     return HttpResponse("Calendario")
+
+def Stats(request):
+
+    return HttpResponse("Estadisticas")
+
+def Scuderia(request):
+
+    return HttpResponse("Escuderias")
 

@@ -20,8 +20,10 @@ import formula1_project
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Inicio, name = "Inicio"),
-    path('Pilotos', views.Pilotos, name = "Pilotos"),
-    path('Carreras', views.Carreras, name = "Carreras"),
-    path('Calendario', views.Calendario, name = "Calendario"),
+    path('', views.Inicio, name="Inicio"),
+    path('Drivers', views.Drivers, name="Drivers"),
+    path('Circuits', views.Circuits, name="Carreras"),
+    path('Seasons', views.Seasons, name="Temporadas"),
+    path('Scuderia', views.Scuderia, name="Escuderias"),
+    path('Stats', views.Stats, name="Estadisticas")
 ]
