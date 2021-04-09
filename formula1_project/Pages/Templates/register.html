@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 
 {% block headers %}<h1>Sign Up</h1>{% endblock %}
-{% load crispy_forms_tags%}
 
 {% block page_content %}
         <form method="POST" class="form-group">
             {% csrf_token %}
-            {{ form|crispy }}
-<!--            <table>{{ form.as_table }}</table>-->
+            {{ form.as_p }}
             <button type="submit" class="btn btn-success">Register</button>
         </form>
 
