@@ -1,14 +1,14 @@
-#F1-PROJECT
+# F1-PROJECT
 * Web project - First Delivery
-#Collaborators
+# Collaborators
 * Ana Sánchez Plumed
 * Iñaki Serrano Navarro
 * Gianfranco Ramírez Reyes
 * Xavier Reverter Torrescusa
-#Technologies
+# Technologies
 * F1 API: https://api-sports.io/documentation/formula-1/v1#section/Introduction
 * Django Framework
-#Users in login system:
+# Users in login system:
 * **ADMIN USER**: 
     * User:
     * Password:
@@ -17,7 +17,7 @@
     * Password:
 
 
-#Model of project:
+# Model of project:
 ![image](C:\Users\Windows\Desktop\class_diagram.png)
 
 
