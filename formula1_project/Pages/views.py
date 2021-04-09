@@ -27,12 +27,12 @@ def circuits(request):
 
 
 def seasons(request):
-    return HttpResponse("Calendario")
+    return HttpResponse("Seasons")
 
 
 def stats(request):
-    return HttpResponse("Estadisticas")
+    return HttpResponse("Statistics")
 
 
 def scuderia(request):
-    return HttpResponse("Escuderias")
+    return HttpResponse("Scuderias")

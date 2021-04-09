@@ -4,7 +4,7 @@ import formula1_project
 
 # Create your models here.
 
-class Escuderia(models.Model):
+class Scuderia(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=400)
     colors = models.CharField(max_length=100)
@@ -13,16 +13,16 @@ class Escuderia(models.Model):
     num_championships = models.IntegerField()
 
 
-class Piloto(models.Model):
+class Pilot(models.Model):
     name = models.CharField(max_length=200)
     age = models.IntegerField()
-    nacionality = models.CharField(max_length=100)
-    escuderia = models.CharField(max_length=100)
+    nationality = models.CharField(max_length=100)
+    scuderia = models.CharField(max_length=100)
     height = models.IntegerField()
     weight = models.IntegerField()
 
 
-class EstadisticaDriver(models.Model):
+class StatisticsDriver(models.Model):
     nameDriver = models.CharField(max_length=200)
     num_of_championships = models.IntegerField()
     age_validity = models.IntegerField()
@@ -30,13 +30,13 @@ class EstadisticaDriver(models.Model):
     name_dif_teams = models.CharField(max_length=100)
 
 
-class EstadisticaScuderia(models.Model):
+class StatisticsScuderia(models.Model):
     nameScuderia = models.CharField(max_length=100)
     age_of_birth = models.IntegerField()
     num_of_championships = models.IntegerField()
 
 
-class Circuito(models.Model):
+class Circuit(models.Model):
     name = models.CharField(max_length=200)
     country = models.CharField(max_length=100)
     circuit_length = models.IntegerField()
@@ -46,7 +46,7 @@ class Circuito(models.Model):
     lap_record = models.CharField(max_length=100)
 
 
-class Temporada(models.Model):
+class Season(models.Model):
     year = models.IntegerField()
     num_gp = models.IntegerField()
     num_scuderias = models.IntegerField()

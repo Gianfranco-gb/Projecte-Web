@@ -27,5 +27,5 @@ urlpatterns = [
     path('Circuits', views.circuits, name="Circuit"),
     path('Seasons', views.seasons, name="Seasons"),
     path('Scuderia', views.scuderia, name="Scuderias"),
-    path('Stats', views.stats, name="Stats")
+    path('Stats', views.stats, name="Statistics")
 ]
