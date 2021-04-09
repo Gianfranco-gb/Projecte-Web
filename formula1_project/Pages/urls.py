@@ -15,17 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import views
+from Pages import views
 import formula1_project
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
-    path('', views.home, name="Home"),
-    path('admin/', admin.site.urls),
-    path('register/', views.register, name="Register"),
-    path('login/', views.log_in, name="Login"),
-    path('Drivers', views.drivers, name="Drivers"),
-    path('Circuits', views.circuits, name="Circuit"),
-    path('Seasons', views.seasons, name="Seasons"),
-    path('Scuderia', views.scuderia, name="Scuderias"),
-    path('Stats', views.stats, name="Statistics")
+    path('', views.home, name="home"),
+    path('register/', views.register, name="register"),
+    path('login/', LoginView.as_view(), name="login"),
+    path('drivers/', views.drivers, name="drivers"),
+    path('circuits/', views.circuits, name="circuit"),
+    path('seasons/', views.seasons, name="seasons"),
+    path('scuderia/', views.scuderia, name="scuderias"),
+    path('stats/', views.stats, name="statistics")
+
 ]
