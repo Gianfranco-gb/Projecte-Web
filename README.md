@@ -13,8 +13,8 @@
     * User: admin
     * Password: admin
 * **NORMAL USER**:
-    * User:
-    * Password:
+    * User: user1234
+    * Password: userpassword1234
 
 
 # Model of project:

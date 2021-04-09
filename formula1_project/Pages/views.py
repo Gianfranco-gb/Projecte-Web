@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+
+from django.shortcuts import render, HttpResponse, redirect
+from .forms import RegisterForm
 from .models import *
 
 
@@ -14,7 +14,14 @@ def log_in(request):
 
 
 def register(request):
-    form = UserCreationForm
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/")
+    else:
+        form = RegisterForm()
+
     return render(request, 'register.html', {"form": form})
 
 
