@@ -18,6 +18,6 @@
 
 
 # Model of project:
-![image](C:\Users\Windows\Desktop\class_diagram.png)
+* Imatge al directori IMAGE --> class_diagram.png
 
 
