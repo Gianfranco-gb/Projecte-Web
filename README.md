@@ -10,14 +10,14 @@
 * Django Framework
 # Users in login system:
 * **ADMIN USER**: 
-    * User:
-    * Password:
+    * User: admin
+    * Password: admin
 * **NORMAL USER**:
     * User:
     * Password:
 
 
 # Model of project:
-* Imatge al directori IMAGE --> class_diagram.png
+* Imatge al directori Images --> class_diagram.png
 
 
