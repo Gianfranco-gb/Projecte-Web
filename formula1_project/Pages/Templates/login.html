@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% if form.errors %}
+    <p>Los datos de usuario o contraseña son erroneos, intentalo otra vez</p>
+{% endif %}
+
+{%block page_content%}
+    <h1>Login</h1>
+    <form method = "POST" action = "#">
+        <p> Usuario: </p>
+        <p> input type= "text" name = "nm" /></p>
+        <p> input type= "submit" value = "Enviar" </p>
+    </form>
+{%endblock%}

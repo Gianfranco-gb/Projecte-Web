@@ -8,7 +8,7 @@ def Inicio(request):
 
 
 def Drivers(request):
-    return HttpResponse("Drivers")
+    return render(request, 'login.html')
 
 
 def Circuits(request):
