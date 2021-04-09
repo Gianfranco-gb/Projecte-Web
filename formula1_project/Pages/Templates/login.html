@@ -4,10 +4,16 @@
 {% endif %}
 
 {%block page_content%}
+    <center>
     <h1>Login</h1>
     <form method = "POST" action = "#">
-        <p> Usuario: </p>
-        <p> input type= "text" name = "nm" /></p>
-        <p> input type= "submit" value = "Enviar" </p>
+        {%  csrf_token %}
+        <label> Usuario: </label>
+        <input type= "text" name = "nm" placeholder="Escribe el usuario"/>
+        <label> Contraseña: </label>
+        <input type= "text" name = "contraseña" placeholder="Escribe la contraseña"/>
+        <p> <input type= "submit" value = "Enviar"/></p>
+    </center>
     </form>
+
 {%endblock%}
