@@ -19,11 +19,13 @@ import views
 import formula1_project
 
 urlpatterns = [
+    path('', views.home, name="Home"),
     path('admin/', admin.site.urls),
-    path('', views.Inicio, name="Inicio"),
-    path('Drivers', views.Drivers, name="Drivers"),
-    path('Circuits', views.Circuits, name="Carreras"),
-    path('Seasons', views.Seasons, name="Temporadas"),
-    path('Scuderia', views.Scuderia, name="Escuderias"),
-    path('Stats', views.Stats, name="Estadisticas")
+    path('register/', views.register, name="Register"),
+    path('login/', views.log_in, name="Login"),
+    path('Drivers', views.drivers, name="Drivers"),
+    path('Circuits', views.circuits, name="Circuit"),
+    path('Seasons', views.seasons, name="Seasons"),
+    path('Scuderia', views.scuderia, name="Scuderias"),
+    path('Stats', views.stats, name="Stats")
 ]

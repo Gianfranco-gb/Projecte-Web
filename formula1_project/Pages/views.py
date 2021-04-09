@@ -1,27 +1,38 @@
 from django.shortcuts import render, HttpResponse
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from .models import *
 
 
 # Create your views here.
-def Inicio(request):
-    return render(request, 'Pagina_Inici.html')
+def home(request):
+    return render(request, 'home.html')
 
 
-def Drivers(request):
+def log_in(request):
     return render(request, 'login.html')
 
 
-def Circuits(request):
-    return HttpResponse("Carreras")
+def register(request):
+    form = UserCreationForm
+    return render(request, 'register.html', {"form": form})
 
 
-def Seasons(request):
+def drivers(request):
+    return HttpResponse("Drivers")
+
+
+def circuits(request):
+    return HttpResponse("Circuits")
+
+
+def seasons(request):
     return HttpResponse("Calendario")
 
 
-def Stats(request):
+def stats(request):
     return HttpResponse("Estadisticas")
 
 
-def Scuderia(request):
+def scuderia(request):
     return HttpResponse("Escuderias")

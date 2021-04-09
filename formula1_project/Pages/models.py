@@ -1,5 +1,7 @@
 from django.db import models
 import formula1_project
+
+
 # Create your models here.
 
 class Escuderia(models.Model):
@@ -10,6 +12,7 @@ class Escuderia(models.Model):
     secondaryDriver = models.CharField(max_length=200)
     num_championships = models.IntegerField()
 
+
 class Piloto(models.Model):
     name = models.CharField(max_length=200)
     age = models.IntegerField()
@@ -18,6 +21,7 @@ class Piloto(models.Model):
     height = models.IntegerField()
     weight = models.IntegerField()
 
+
 class EstadisticaDriver(models.Model):
     nameDriver = models.CharField(max_length=200)
     num_of_championships = models.IntegerField()
@@ -25,10 +29,12 @@ class EstadisticaDriver(models.Model):
     num_dif_teams = models.IntegerField()
     name_dif_teams = models.CharField(max_length=100)
 
+
 class EstadisticaScuderia(models.Model):
     nameScuderia = models.CharField(max_length=100)
     age_of_birth = models.IntegerField()
     num_of_championships = models.IntegerField()
+
 
 class Circuito(models.Model):
     name = models.CharField(max_length=200)
@@ -38,6 +44,7 @@ class Circuito(models.Model):
     first_gp = models.IntegerField()
     race_distance = models.IntegerField()
     lap_record = models.CharField(max_length=100)
+
 
 class Temporada(models.Model):
     year = models.IntegerField()
