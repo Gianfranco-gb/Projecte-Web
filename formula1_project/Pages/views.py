@@ -19,10 +19,8 @@ def login(request):
     
         if user is not None:
             auth.login(request, user)
-            print("hola")
             return redirect("/")
         else:
-            print("Nop")
             messages.error(request, 'Error wrong username/password')
     form = AuthenticationForm
     return render(request, 'login.html', {"form": form})
