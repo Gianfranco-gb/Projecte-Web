@@ -26,7 +26,7 @@ SECRET_KEY = '5i97$#2huq^n3-fh!q!6_$fksz@qlcymw9^0a=c4fs$=svop+j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['formula1-proj.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
