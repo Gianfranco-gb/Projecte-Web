@@ -6,8 +6,22 @@
 * Gianfranco Ramírez Reyes
 * Xavier Reverter Torrescusa
 # Technologies
-* F1 API: https://api-sports.io/documentation/formula-1/v1#section/Introduction
-* Django Framework
+* Use of the [F1 API](https://api-sports.io/documentation/formula-1/v1#section/Introduction)
+* CSS 4
+* Bootstrap 
+* Heroku:
+* Docker: 
+
+# How to run:
+### Requisites:
+* This project is used with [Pyhton 3.9](https://www.python.org/downloads/release/python-390/) version 
+* [Django Framework 3.2](https://www.djangoproject.com/weblog/2021/apr/06/django-32-released/)
+* The only command you have to write down is:
+
+      $ python manage.py runserver
+
+
+
 # Users in login system:
 * **ADMIN USER**: 
     * User: admin
@@ -15,7 +29,6 @@
 * **NORMAL USER**:
     * User: user1234
     * Password: userpassword1234
-
 
 # Model of project:
 * Imatge al directori Images --> class_diagram.png
