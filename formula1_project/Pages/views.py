@@ -1,7 +1,7 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from .models import *
-from django.contrib import auth,messages
+from django.contrib import auth, messages
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -46,20 +46,20 @@ def register(request):
 
 
 def drivers(request):
-    return HttpResponse("Drivers")
+    return render(request, 'driver.html')
 
 
 def circuits(request):
-    return HttpResponse("Circuits")
+    return render(request, 'circuit.html')
 
 
 def seasons(request):
-    return HttpResponse("Seasons")
+    return render(request, 'season.html')
 
 
 def stats(request):
-    return HttpResponse("Statistics")
+    return render(request, 'stats.html')
 
 
 def scuderia(request):
-    return HttpResponse("Scuderias")
+    return render(request, 'scuderia.html')

@@ -4,7 +4,7 @@ import formula1_project
 # Register your models here.
 
 admin.site.register(Scuderia)
-admin.site.register(Pilot)
+admin.site.register(Driver)
 admin.site.register(StatisticsDriver)
 admin.site.register(StatisticsScuderia)
 admin.site.register(Circuit)

@@ -24,10 +24,9 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('login/', views.login, name="login"),
     path('logout/', views.logout, name="logout"),
-    path('drivers/', views.drivers, name="drivers"),
-    path('circuits/', views.circuits, name="circuit"),
-    path('seasons/', views.seasons, name="seasons"),
-    path('scuderia/', views.scuderia, name="scuderias"),
-    path('stats/', views.stats, name="statistics")
-
+    path('circuit/', views.circuits, name="circuit"),
+    path('driver/', views.drivers, name="driver"),
+    path('scuderia/', views.scuderia, name="scuderia"),
+    path('season/', views.seasons, name="season"),
+    path('stats/', views.stats, name="stats"),
 ]

@@ -20,13 +20,13 @@
             </div>
             <center>
                 <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
+                <p></p>
+                <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Circuits</a>
+                <a href="{% url 'driver' %}" type="button" class="btn btn-dark">Drivers</a>
+                <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Scuderias</a>
+                <a href="{% url 'season' %}" type="button" class="btn btn-dark">Seasons</a>
+                <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Stats</a>
             </center>
-                <a href="{% url 'scuderias' %}" type="button" class="btn btn-dark">Scuderia</a>
-                <a href="{% url 'scuderias' %}" type="button" class="btn btn-dark">Drivers</a>
-                <a href="{% url 'scuderias' %}" type="button" class="btn btn-dark">Circuits</a>
-                <a href="{% url 'scuderias' %}" type="button" class="btn btn-dark">Pilots</a>
-                <a href="{% url 'scuderias' %}" type="button" class="btn btn-dark">Seasons</a>
-                <a href="{% url 'scuderias' %}" type="button" class="btn btn-dark">Stats</a>
         {% endif %}
 
     {% endblock %}

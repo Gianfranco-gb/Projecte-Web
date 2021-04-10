@@ -13,7 +13,7 @@ class Scuderia(models.Model):
     num_championships = models.IntegerField()
 
 
-class Pilot(models.Model):
+class Driver(models.Model):
     name = models.CharField(max_length=200)
     age = models.IntegerField()
     nationality = models.CharField(max_length=100)
