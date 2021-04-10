@@ -53,7 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'formula1_project.urls'
 
-#TEMPLATE_DIRS = (os.path.join(PROJECT_DIR, "templates"),)
+# TEMPLATE_DIRS = (
+#     os.path.join(PROJECT_DIR, "templates"),)
 
 TEMPLATES = [
     {
