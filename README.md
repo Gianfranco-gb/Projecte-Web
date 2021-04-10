@@ -9,8 +9,8 @@
 * Use of the [F1 API](https://api-sports.io/documentation/formula-1/v1#section/Introduction)
 * CSS 4
 * Bootstrap 
-* Heroku:
-* Docker: 
+* Heroku: [Web](https://formula1-project.herokuapp.com)
+* Docker: Not implemented
 
 # How to run:
 ### Requisites:
