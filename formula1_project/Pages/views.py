@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import RegisterForm
 from .models import *
-from django.contrib import auth
+from django.contrib import auth,messages
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -11,7 +11,20 @@ def home(request):
 
 
 def login(request):
-    form = AuthenticationForm()
+
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
+    
+        if user is not None:
+            auth.login(request, user)
+            print("hola")
+            return redirect("/")
+        else:
+            print("Nop")
+            messages.error(request, 'Error wrong username/password')
+    form = AuthenticationForm
     return render(request, 'login.html', {"form": form})
 
 
