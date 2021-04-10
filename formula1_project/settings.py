@@ -53,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'formula1_project.urls'
 
+#TEMPLATE_DIRS = (os.path.join(PROJECT_DIR, "templates"),)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
