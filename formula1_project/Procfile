@@ -1,2 +1,2 @@
 relase: python manage.py migrate
-web: gunicorn td.wsgi
+web: gunicorn formula1_project.wsgi --log-file -
