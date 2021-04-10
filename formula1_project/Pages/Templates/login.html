@@ -1,20 +1,16 @@
-{% extends "base.html" %}
-{% if form.errors %}
-    <p>Los datos de usuario o contraseña son erroneos, intentalo otra vez</p>
-{% endif %}
+{%extends "base.html"%}
+
+{%block headers%}
+<h1>
+    Login
+</h1>
+{%endblock%}
 
 {%block page_content%}
-    <div style="text-align: center;" >
-        <h1>Login</h1>
-            <form method = "POST" action = "/">
-        {%  csrf_token %}
-            <label> Usuario: </label>
-            <input type= "text" name = "nm" placeholder="Escribe el usuario"/>
-            <br>
-            <label> Contraseña: </label>
-            <input type= "password" name = "contraseña" placeholder="Escribe la contraseña"/>
-            <br>
-            <input type= "submit" value = "Enviar"/>
-            </form>
-    </div>
+    <form method = "POST" class = "from-group">
+        {% csrf_token %}
+        {{form.as_p}}
+        <p>Don't have an account? Create a new one <a href="/register">here</a> </p>
+        <button type ="submit" class = "btn btn-success">Login</button>
+    </form>
 {%endblock%}
