@@ -30,12 +30,6 @@ class StatisticsDriver(models.Model):
     name_dif_teams = models.CharField(max_length=100)
 
 
-class StatisticsScuderia(models.Model):
-    nameScuderia = models.CharField(max_length=100)
-    age_of_birth = models.IntegerField()
-    num_of_championships = models.IntegerField()
-
-
 class Circuit(models.Model):
     name = models.CharField(max_length=200)
     country = models.CharField(max_length=100)
