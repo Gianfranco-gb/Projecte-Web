@@ -6,6 +6,5 @@ import formula1_project
 admin.site.register(Scuderia)
 admin.site.register(Driver)
 admin.site.register(StatisticsDriver)
-admin.site.register(StatisticsScuderia)
 admin.site.register(Circuit)
 admin.site.register(Season)

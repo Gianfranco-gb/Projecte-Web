@@ -6,8 +6,7 @@ import formula1_project
 
 class Scuderia(models.Model):
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=400)
-    colors = models.CharField(max_length=100)
+    main_color = models.CharField(max_length=100)
     principalDriver = models.CharField(max_length=200)
     secondaryDriver = models.CharField(max_length=200)
     num_championships = models.IntegerField()
@@ -25,9 +24,7 @@ class Driver(models.Model):
 class StatisticsDriver(models.Model):
     nameDriver = models.CharField(max_length=200)
     num_of_championships = models.IntegerField()
-    age_validity = models.IntegerField()
     num_dif_teams = models.IntegerField()
-    name_dif_teams = models.CharField(max_length=100)
 
 
 class Circuit(models.Model):
@@ -36,7 +33,6 @@ class Circuit(models.Model):
     circuit_length = models.IntegerField()
     laps_in_race = models.IntegerField()
     first_gp = models.IntegerField()
-    race_distance = models.IntegerField()
     lap_record = models.CharField(max_length=100)
 
 
