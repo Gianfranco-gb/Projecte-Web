@@ -18,7 +18,7 @@ Feature: Edit stats
     And I edit current stat
       | name Driver    | num of championships | num dif teams |
       | Max Verstappen | 1                    | 2             |
-    Then I'm viewing the details page for stat "Portimao" by "user1"
+    Then I'm viewing the details page for stat "Max Verstappen" by "user1"
       | name Driver    | num of championships | num dif teams |
       | Max Verstappen | 1                    | 2             |
     And there's 1 stat
