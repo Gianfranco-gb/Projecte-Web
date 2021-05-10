@@ -3,7 +3,12 @@
 {% block headers %}<h1>Drivers</h1>{% endblock %}
 
 {% block page_content %}
-<h4>Coming Soon ...</h4>
+    <ul>
+        {% for driver in context %}
+            <li>{{ driver.name }}</li>
+        {% empty %}<li>Sorry, no drivers registered yet.</li>
+        {% endfor %}
+    </ul>
 
 <center>
     <a href="{% url 'home' %}" type="button" class="btn btn-dark">Return</a>

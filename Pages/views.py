@@ -42,9 +42,19 @@ def register(request):
 
     return render(request, 'register.html', {"form": form})
 
+def list_drivers(request, limit):
+    queryset = Driver.objects.filter(date__lte=timezone.now()).order_by('-date')[:2]
+    context = {
+        "object" : queryset
+    }
+    return render(request, "list_driver,html", context)
 
 def drivers(request):
-    return render(request, 'driver.html')
+    queryset = Driver.objects.all()
+    context = {
+        "object": queryset
+    }
+    return render(request, "driver.html", context)
 
 
 def circuits(request):
