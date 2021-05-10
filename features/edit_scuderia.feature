@@ -27,3 +27,11 @@ Feature: Edit scuderia
     Given I login as a user "user2" with password "password2"
     When  I view the details for scuderia "Ferrari"
     Then ther's no "edit" link available
+
+
+  Scenario: Force edit scuderia but not the owner permission exception
+    Given I login as user "user2" with password "password"
+    When I edit the scuderia with name "Ferrari"
+      | name    | main color | principal Driver | secondary Driver | num championships |
+      | Ferrari | Red        | Charles Leclerc  | Carlos Sainz     | 17                |
+    Then Server responds with page containing "403 Forbidden"

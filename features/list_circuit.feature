@@ -13,20 +13,20 @@ Feature: List circuit
       | Baku City | Azerbaijan | 6.003 km       | 51           | 2016     | 1:43:009   |
 
   Scenario: List the last 2 circuits
-    When I list circuits (only name and country)
+    When I list circuits
     Then I'm viewing a list containing
-      | name      | country    |
-      | Baku City | Azerbaijan |
-      | Barhain   | Barhain    |
+      | name      |
+      | Baku City |
+      | Barhain   |
     And The list contains 2 circuits
 
   Scenario: List the last 2 circuits
     Given Exist a circuit registered by "user"
       | name     | country | circuit length | laps in race | first gp | lap record |
       | Montmelo | Spain   | 4.675 km       | 66           | 1913     | 1:18:441   |
-    When I list circuits (only name and country)
+    When I list circuits
     Then I'm viewing a list containing
-      | name      | country    |
-      | Montmelo  | Spain      |
-      | Baku City | Azerbaijan |
+      | name      |
+      | Montmelo  |
+      | Baku City |
     And The list contains 2 circuits

@@ -26,4 +26,14 @@ Feature: Edit circuit
   Scenario: Try to edit not owned circuit
     Given I login as a user "user2" with password "password2"
     When  I view the details for circuit "Portimao"
-    Then ther's no "edit" link available
+    Then there's no "edit" link available
+
+
+  Scenario: Force edit circuit but not the owner permission exception
+    Given I login as user "user2" with password "password"
+    When I edit the circuit with name "Portimao"
+      | name     | country  | circuit length | laps in race | first gp | lap record |
+      | Portimao | Portugal | 4.653 km       | 80           | 2020     | 1:18:750   |
+    Then Server responds with page containing "403 Forbidden"
+
+

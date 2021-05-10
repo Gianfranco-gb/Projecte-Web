@@ -11,7 +11,7 @@ Feature: Register circuits
     When I register a circuit
       | name       | country | circuit length | laps in race | first gp | lap record |
       | MonteCarlo | Monaco  | 3.337 km       | 78           | 1950     | 1:14:260   |
-    Then I'm viewing the details page for restaurant by "user"
+    Then I'm viewing the details page for circuit by "user"
       | name       | country | circuit length | laps in race | first gp | lap record |
       | MonteCarlo | Monaco  | 3.337 km       | 78           | 1950     | 1:14:260   |
     And there's 1 circuit registered

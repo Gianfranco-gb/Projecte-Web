@@ -12,7 +12,7 @@ Feature: List scuderia
       | AlfaRomeo| White      | Kimi Raikkonen   | Antonio Giovinazzi | 0                 |
 
   Scenario: List the last 2 scuderias
-    When I list scuderias (only name)
+    When I list scuderias
     Then I'm viewing a list containing
       | name      |
       | AlfaRomeo |
@@ -24,7 +24,7 @@ Feature: List scuderia
     Given Exist a scuderias registered by "user"
       | name     | main color | principal Driver | secondary Driver   | num championships |
       | Haas     | White      | Mick Schumacher  | Nikita Mazepin     | 0                 |
-    When I list scuderias (only name, age and nationality)
+    When I list scuderias
     Then I'm viewing a list containing
       | name      |
       | Haas      |

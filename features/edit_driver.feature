@@ -27,3 +27,10 @@ Feature: Edit driver
     Given I login as a user "user2" with password "password2"
     When  I view the details for driver "Valteri Bottas"
     Then ther's no "edit" link available
+
+  Scenario: Force edit driver but not the owner permission exception
+    Given I login as user "user2" with password "password"
+    When I edit the driver with name "Valtteri Bottas"
+      | name            | age | nationality | scuderia | height | weight |
+      | Valtteri Bottas | 31  | Finland     | Williams | 1.73 m | 69 kg  |
+    Then Server responds with page containing "403 Forbidden"

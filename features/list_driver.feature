@@ -12,11 +12,11 @@ Feature: List driver
       | George Russell  | 23  | UK          | Williams        | 1.85 m | 70kg   |
 
   Scenario: List the last 2 drivers
-    When I list drivers (only name, age and nationality)
+    When I list drivers
     Then I'm viewing a list containing
-      | name            | age | nationality |
-      | George Russell  | 23  | UK          |
-      | Lance Stroll    | 22  | Canada      |
+      | name            |
+      | George Russell  |
+      | Lance Stroll    |
     And The list contains 2 drivers
 
 
@@ -24,9 +24,9 @@ Feature: List driver
     Given Exist a driver registered by "user"
       | name            | age | nationality  | scuderia        | height | weight |
       | Charles Leclerc | 23  | Monaco       | Ferrari         | 1.80 m | 70 kg  |
-    When I list drivers (only name, age and nationality)
+    When I list drivers
     Then I'm viewing a list containing
-      | name            | age | nationality  |
-      | Charles Leclerc | 23  | Monaco       |
-      | George Russell  | 23  | UK           |
+      | name            |
+      | Charles Leclerc |
+      | George Russell  |
     And The list contains 2 drivers
