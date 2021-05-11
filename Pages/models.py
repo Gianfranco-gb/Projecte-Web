@@ -22,7 +22,7 @@ class Driver(models.Model):
 
 
 class StatisticsDriver(models.Model):
-    nameDriver = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     num_of_championships = models.IntegerField()
     num_dif_teams = models.IntegerField()
 

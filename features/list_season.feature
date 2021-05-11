@@ -12,7 +12,7 @@ Feature: List season
       | 2005    | 19      | 10            | Fernando Alonso  |
   Scenario: List the last 2 drivers
     When I list seasons
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 seasons
       | year    |
       | 2005    |
       | 2015    |
@@ -24,7 +24,7 @@ Feature: List season
       | year    | num GP  | num scuderias | world champion   |
       | 2009    | 17      | 10            | Jenson Button    |
     When I list seasons
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 seasons
       | year    |
       | 2009    |
       | 2005    |

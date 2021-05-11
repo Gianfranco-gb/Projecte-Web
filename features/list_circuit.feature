@@ -14,7 +14,7 @@ Feature: List circuit
 
   Scenario: List the last 2 circuits
     When I list circuits
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 circuits
       | name      |
       | Baku City |
       | Barhain   |
@@ -25,7 +25,7 @@ Feature: List circuit
       | name     | country | circuit length | laps in race | first gp | lap record |
       | Montmelo | Spain   | 4.675 km       | 66           | 1913     | 1:18:441   |
     When I list circuits
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 circuits
       | name      |
       | Montmelo  |
       | Baku City |

@@ -13,7 +13,7 @@ Feature: List scuderia
 
   Scenario: List the last 2 scuderias
     When I list scuderias
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 scuderias
       | name      |
       | AlfaRomeo |
       | RedBull   |
@@ -25,7 +25,7 @@ Feature: List scuderia
       | name     | main color | principal Driver | secondary Driver   | num championships |
       | Haas     | White      | Mick Schumacher  | Nikita Mazepin     | 0                 |
     When I list scuderias
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 scuderias
       | name      |
       | Haas      |
       | AlfaRomeo |

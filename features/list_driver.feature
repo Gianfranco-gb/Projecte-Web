@@ -13,7 +13,7 @@ Feature: List driver
 
   Scenario: List the last 2 drivers
     When I list drivers
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 drivers
       | name            |
       | George Russell  |
       | Lance Stroll    |
@@ -25,7 +25,7 @@ Feature: List driver
       | name            | age | nationality  | scuderia        | height | weight |
       | Charles Leclerc | 23  | Monaco       | Ferrari         | 1.80 m | 70 kg  |
     When I list drivers
-    Then I'm viewing a list containing
+    Then I'm viewing a list containing last 2 drivers
       | name            |
       | Charles Leclerc |
       | George Russell  |
