@@ -5,7 +5,7 @@ Feature: List scuderia
 
   Background: There are 3 registered scuderias by the same user
     Given Exists a user "user" with password "password"
-    And Exists drivers registered by this "user"
+    And Exists scuderia registered by "user"
       | name     | main_color | principalDriver | secondaryDriver    | num_championships |
       | Mercedes | Black      | Lewis Hamilton  | Valtteri Bottas    | 7                 |
       | RedBull  | Navy Blue  | Max Verstappen  | Sergio Perez       | 4                 |
@@ -21,7 +21,7 @@ Feature: List scuderia
 
 
   Scenario: List the last 2 scuderias
-    Given Exist a scuderias registered by "user"
+    Given Exists scuderia registered by "user"
       | name     | main_color | principalDriver | secondaryDriver   | num_championships |
       | Haas     | White      | Mick Schumacher | Nikita Mazepin    | 0                 |
     When I list scuderias
