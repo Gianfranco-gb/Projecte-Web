@@ -6,19 +6,19 @@ from django.db.models import Q
 use_step_matcher("parse")
 
 
-@given('Exists circuit registered by this "{user}"')
-def step_impl(context, user):
+@given(u'Exists circuit registered by "{username}"')
+def step_impl(context, username):
     from django.contrib.auth.models import User
-    user = User.objects.get(user=user)
+    user = User.objects.get(username=username)
     from Pages.models import Circuit
     for row in context.table:
         circuit = Circuit(user=user)
-        for h in row.headings:
-            setattr(circuit, h, row[h])
+        for heading in row.headings:
+            setattr(circuit, heading, row[heading])
         circuit.save()
 
 
-@when('I register a circuit')
+@when(u'I register a circuit')
 def step_impl(context):
     for row in context.table:
         context.browser.visit(context.get_url('circuit_create'))
@@ -29,7 +29,7 @@ def step_impl(context):
             form.find_by_value('Submit').first.click()
 
 
-@then('I\'m viewing the details page for circuit by "{user}"')
+@then(u'I\'m viewing the details page for circuit by "{user}"')
 def step_impl(context, user):
     q_list = [Q((attribute, context.table.rows[0][attribute])) for attribute in context.table.headings]
     from django.contrib.auth.models import User
@@ -39,13 +39,13 @@ def step_impl(context, user):
     assert context.browser.url == context.get_url(circuit)
 
 
-@then("There's {count:n} circuit registered")
+@then(u'There is {count:n} circuit')
 def step_impl(context, count):
     from Pages.models import Circuit
     assert count == Circuit.objects.count()
 
 
-@when('I edit the circuit with name "{name}"')
+@when(u'I edit the circuit with name "{name}"')
 def step_impl(context, name):
     from Pages.models import Circuit
     circuit = Circuit.objects.get(name=name)
@@ -57,7 +57,7 @@ def step_impl(context, name):
         form.find_by_value('Submit').first.click()
 
 
-@when('I edit current circuit')
+@when(u'I edit current circuit')
 def step_impl(context):
     context.browser.find_link_by_text('edit').click()
     context.browser.visit(context.get_url('circuit_edit'))

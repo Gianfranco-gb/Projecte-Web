@@ -6,7 +6,7 @@ Feature: List season
   Background: There are 3 registered seasons by the same user
     Given Exists a user "user" with password "password"
     And Exists seasons registered by this "user"
-      | year    | num GP  | num scuderias | world champion   |
+      | year    | num_gp  | num_scuderias | world_champion   |
       | 2010    | 19      | 12            | Sebastian Vettel |
       | 2015    | 19      | 10            | Lewis Hamilton   |
       | 2005    | 19      | 10            | Fernando Alonso  |
@@ -21,7 +21,7 @@ Feature: List season
 
   Scenario: List the last 2 seasons
     Given Exist a season registered by "user"
-      | year    | num GP  | num scuderias | world champion   |
+      | year    | num_gp  | num_scuderias | world_champion   |
       | 2009    | 17      | 10            | Jenson Button    |
     When I list seasons
     Then I'm viewing a list containing last 2 seasons

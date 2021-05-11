@@ -9,11 +9,10 @@ Feature: Register circuits
   Scenario: Register a circuit with all elements defined before
     Given I login as a user "user" with password "password"
     When I register a circuit
-      | name       | country | circuit length | laps in race | first gp | lap record |
-      | MonteCarlo | Monaco  | 3.337 km       | 78           | 1950     | 1:14:260   |
+      | name       | country | circuit_length | laps_in_race | first_gp | lap_record |
+      | MonteCarlo | Monaco  | 3337           | 78           | 1950     | 1:14:260   |
     Then I'm viewing the details page for circuit by "user"
-      | name       | country | circuit length | laps in race | first gp | lap record |
-      | MonteCarlo | Monaco  | 3.337 km       | 78           | 1950     | 1:14:260   |
+      | name       | country | circuit_length | laps_in_race | first_gp | lap_record |
+      | MonteCarlo | Monaco  | 3337           | 78           | 1950     | 1:14:260   |
     And there's 1 circuit registered
-
 

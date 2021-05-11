@@ -6,7 +6,7 @@ from django.db.models import Q
 use_step_matcher("parse")
 
 
-@given('Exists scuderia registered by this "{user}"')
+@given(u'Exists scuderia registered by this "{user}"')
 def step_impl(context, user):
     from django.contrib.auth.models import User
     user = User.objects.get(user=user)
@@ -18,7 +18,7 @@ def step_impl(context, user):
         scuderia.save()
 
 
-@when('I register a scuderia')
+@when(u'I register a scuderia')
 def step_impl(context):
     for row in context.table:
         context.browser.visit(context.get_url('scuderia_create'))
@@ -29,7 +29,7 @@ def step_impl(context):
             form.find_by_value('Submit').first.click()
 
 
-@then('I\'m viewing the details page for scuderia by "{user}"')
+@then(u'I\'m viewing the details page for scuderia by "{user}"')
 def step_impl(context, user):
     q_list = [Q((attribute, context.table.rows[0][attribute])) for attribute in context.table.headings]
     from django.contrib.auth.models import User
@@ -39,13 +39,13 @@ def step_impl(context, user):
     assert context.browser.url == context.get_url(scuderia)
 
 
-@then("There's {count:n} scuderia registered")
+@then(u"There's {count:n} scuderia registered")
 def step_impl(context, count):
     from Pages.models import Scuderia
     assert count == Scuderia.objects.count()
 
 
-@when('I edit the scuderia with name "{name}"')
+@when(u'I edit the scuderia with name "{name}"')
 def step_impl(context, name):
     from Pages.models import Scuderia
     scuderia = Scuderia.objects.get(name=name)
@@ -57,7 +57,7 @@ def step_impl(context, name):
         form.find_by_value('Submit').first.click()
 
 
-@when('I edit current scuderia')
+@when(u'I edit current scuderia')
 def step_impl(context):
     context.browser.find_link_by_text('edit').click()
     context.browser.visit(context.get_url('scuderia_edit'))

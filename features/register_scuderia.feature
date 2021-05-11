@@ -9,9 +9,9 @@ Feature: Register scuderia
   Scenario: Register a scuderia with all elements defined before
     Given I login as a user "user" with password "password"
     When I register a scuderia
-      | name     | main color | principal Driver | secondary Driver | num championships |
-      | Mercedes | Black      | Lewis Hamilton   | Valtteri Bottas  | 7                 |
+      | name     | main_color | principalDriver | secondaryDriver | num_championships |
+      | Mercedes | Black      | Lewis Hamilton  | Valtteri Bottas | 7                 |
     Then I'm viewing the details page for scuderia by "user"
-      | name     | main color | principal Driver | secondary Driver | num championships |
-      | Mercedes | Black      | Lewis Hamilton   | Valtteri Bottas  | 7                 |
+      | name     | main_color | principalDriver | secondaryDriver | num_championships |
+      | Mercedes | Black      | Lewis Hamilton  | Valtteri Bottas | 7                 |
     And there's 1 scuderia registered

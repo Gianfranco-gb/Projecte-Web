@@ -6,7 +6,7 @@ Feature: List stats
   Background: There are 3 registered stats by the same user
     Given Exists a user "user" with password "password"
     And Exists stats registered by this "user"
-      | name           | num of championships | num dif teams |
+      | name           | num_of_championships | num_dif_teams |
       | Max Verstappen | 0                    | 2             |
       | Carlos Sainz   | 0                    | 4             |
       | Yuki Tsunoda   | 0                    | 1             |
@@ -22,7 +22,7 @@ Feature: List stats
 
   Scenario: List the last 2 stats
     Given Exist a stat registered by "user"
-      | name           | num of championships | num dif teams |
+      | name           | num_of_championships | num_dif_teams |
       | Lewis Hamilton | 7                    | 2             |
     When I list stats
     Then I'm viewing a list containing last 2 stats
