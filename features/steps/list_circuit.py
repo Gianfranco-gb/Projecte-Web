@@ -10,7 +10,7 @@ def step_impl(context):
 
 @then('I\'m viewing a list containing last 2 circuits')
 def step_impl(context):
-    circuit_links = context.browser.find_by_css('')
+    circuit_links = context.browser.find_by_css('div#content ul li')
     for i, row in enumerate(context.table):
         assert row['name'] == circuit_links[i].text
         assert row['country'] == circuit_links[i].text
@@ -18,4 +18,4 @@ def step_impl(context):
 
 @step("The list contains {count:n} circuits")
 def step_impl(context, count):
-    assert count == len(context.browser.find_by_css(''))
+    assert count == len(context.browser.find_by_css('div#content ul li'))
