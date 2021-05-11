@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 
-{% block headers %}<h1>Circuits</h1>{% endblock %}
+{% block headers %}
+    <div align="center" >
+        <h1>Circuits</h1>
+        <a href="{% url 'circuit_create' %}" type="button"  class="btn btn-dark">Add</a>
+    </div>
+
+{% endblock %}
 
 {% block page_content %}
-<h4>Coming Soon ...</h4>
-<center>
-    <a href="{% url 'home' %}" type="button" class="btn btn-dark">Return</a>
-</center>
+    <ul>
+        {% for circuit in context %}
+            <li>{{ circuit.name }}</li>
+        {% empty %}<li>Sorry, no circuits registered yet.</li>
+        {% endfor %}
+    </ul>
+
+    <center>
+        <a href="{% url 'home' %}" type="button" class="btn btn-dark">Return</a>
+    </center>
 
 {% endblock %}

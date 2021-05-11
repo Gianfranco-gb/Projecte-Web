@@ -1,5 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-import formula1_project
 
 
 # Create your models here.
@@ -10,6 +10,7 @@ class Scuderia(models.Model):
     principalDriver = models.CharField(max_length=200)
     secondaryDriver = models.CharField(max_length=200)
     num_championships = models.IntegerField()
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
 
 class Driver(models.Model):
@@ -34,6 +35,7 @@ class Circuit(models.Model):
     laps_in_race = models.IntegerField()
     first_gp = models.IntegerField()
     lap_record = models.CharField(max_length=100)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
 
 class Season(models.Model):

@@ -17,6 +17,8 @@ from django.urls import path
 from Pages import views
 from django.contrib.auth.decorators import login_required
 
+from Pages.views import *
+
 urlpatterns = [
     path('', views.home, name="home"),
     path('register/', views.register, name="register"),
@@ -27,4 +29,6 @@ urlpatterns = [
     path('scuderia/', login_required(views.scuderia), name="scuderia"),
     path('season/', login_required(views.seasons), name="season"),
     path('stats/', login_required(views.stats), name="stats"),
+    path('circuit/create', login_required(circuit_create.as_view()), name="circuit_create"),
+    path('scuderia/create', login_required(scuderia_create.as_view()), name="scuderia_create"),
 ]
