@@ -1,5 +1,6 @@
 from django.db import models
 import formula1_project
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -19,6 +20,7 @@ class Driver(models.Model):
     scuderia = models.CharField(max_length=100)
     height = models.IntegerField()
     weight = models.IntegerField()
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
 
 class StatisticsDriver(models.Model):

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import DriverForm, DriverForm
 from .models import *
 from django.contrib import auth, messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic.edit import CreateView
 
 
 # Create your views here.
@@ -42,7 +43,7 @@ def register(request):
 
     return render(request, 'register.html', {"form": form})
 
-def list_drivers(request, limit):
+def list_drivers(request):
     queryset = Driver.objects.filter(date__lte=timezone.now()).order_by('-date')[:2]
     context = {
         "object" : queryset
@@ -56,6 +57,14 @@ def drivers(request):
     }
     return render(request, "driver.html", context)
 
+class driver_create(CreateView):
+    model = Driver
+    template_name = "form.html"
+    form_class = DriverForm
+
+    def form_valid(self, form):
+        form.instance.user= self.request.user
+        return super().form_valid(form)
 
 def circuits(request):
     return render(request, 'circuit.html')
