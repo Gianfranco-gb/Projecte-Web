@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
-{% block headers %}<h1>Drivers</h1>{% endblock %}
+
+
+{% block headers %}
+    <div align="center" >
+        <h1>Drivers</h1>
+        <a href="{% url 'driver_create' %}" type="button"  class="btn btn-dark">Add</a>
+    </div>
+
+{% endblock %}
 
 {% block page_content %}
     <ul>

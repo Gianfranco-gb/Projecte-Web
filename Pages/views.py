@@ -70,6 +70,15 @@ def drivers(request):
     }
     return render(request, "driver.html", context)
 
+class driver_create(CreateView):
+    model = Driver
+    template_name = 'register.html'
+    form_class = DriverForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(driver_create, self).form_valid(form)
+
 
 def circuits(request):
     queryset = Circuit.objects.all()

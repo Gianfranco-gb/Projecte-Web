@@ -24,3 +24,8 @@ class ScuderiaForm(ModelForm):
     class Meta:
         model = Scuderia
         exclude = ("user",)
+
+class DriverForm(ModelForm):
+    class Meta:
+        model = Driver
+        exclude = ("user",)
