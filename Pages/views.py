@@ -22,26 +22,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-def login(request):
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-        user = auth.authenticate(username=username, password=password)
-    
-        if user is not None:
-            auth.login(request, user)
-            return redirect("/")
-        else:
-            messages.error(request, 'Error wrong username/password')
-    form = AuthenticationForm
-    return render(request, 'login.html', {"form": form})
-
-
-def logout(request):
-    auth.logout(request)
-    return render(request, 'home.html')
-
-
 def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)

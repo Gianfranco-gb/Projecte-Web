@@ -21,8 +21,6 @@ from Pages.views import *
 urlpatterns = [
     path('', views.home, name="home"),
     path('register/', views.register, name="register"),
-    path('login/', views.login, name="login"),
-    path('logout/', views.logout, name="logout"),
     path('circuit/', login_required(views.circuits), name="circuit"),
     path('driver/', login_required(views.drivers), name="driver"),
     path('scuderia/', login_required(views.scuderia), name="scuderia"),

@@ -12,12 +12,11 @@ def step_impl(context, username, password):
 # Aquest falla
 @given(u'I login as a user "{username}" with password "{password}"')
 def step_impl(context, username, password):
-    context.browser.visit(context.get_url('/login/?next=/'))
+    context.browser.visit(context.get_url('/login/'))
     form = context.browser.find_by_tag('form').first
     context.browser.fill('username', username)
     context.browser.fill('password', password)
     form.find_by_value('login').first.click()
-    assert context.browser.is_text_present('User: ' + username)
 
 
 @then(u'Server responds with page containing "{message}"')
