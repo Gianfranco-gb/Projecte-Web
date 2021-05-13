@@ -3,17 +3,20 @@
 {% block headers %}
     <div align="center" >
         <h1>Stat - {{ statisticsdriver.name }}</h1>
-        {% if user == statisticsdriver.user %}
-            <a  type="button"  class="btn btn-dark">edit</a>
-        {% endif %}
     </div>
 
 {% endblock %}
 {% block page_content %}
 <!--Aqui el codi-->
-
+<ul>
+    <h5>Number of championships: {{ statisticsdriver.num_of_championships }}</h5>
+    <h5>Number of diferent teams: {{ statisticsdriver.num_dif_teams }}</h5>
+</ul>
 
     <div align="center" >
+        {% if user == statisticsdriver.user %}
+            <a  type="button"  class="btn btn-dark">edit</a>
+        {% endif %}
         <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}

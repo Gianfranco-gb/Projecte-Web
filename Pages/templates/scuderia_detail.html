@@ -3,17 +3,22 @@
 {% block headers %}
     <div align="center" >
         <h1>Scuderia - {{ scuderia.name }}</h1>
-        {% if user == scuderia.user %}
-            <a  type="button"  class="btn btn-dark">edit</a>
-        {% endif %}
     </div>
 
 {% endblock %}
 {% block page_content %}
 <!--Aqui el codi-->
+<ul>
+    <h5>Main color: {{ scuderia.main_color }}</h5>
+    <h5>Principal Driver: {{ scuderia.principalDriver }}</h5>
+    <h5>Secondary Driver: {{ scuderia.secondaryDriver }}</h5>
+    <h5>Number of championships: {{ scuderia.num_championships }}</h5>
 
-
+</ul>
     <div align="center" >
+        {% if user == scuderia.user %}
+            <a type="button"  class="btn btn-dark">edit</a>
+        {% endif %}
         <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}

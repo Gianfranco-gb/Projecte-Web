@@ -3,16 +3,21 @@
 {% block headers %}
     <div align="center" >
         <h1>Season - {{ season.year }}</h1>
-        {% if user == season.user %}
-            <a  type="button"  class="btn btn-dark">edit</a>
-        {% endif %}
     </div>
 
 {% endblock %}
 {% block page_content %}
 <!--Aqui el codi-->
+<ul>
+    <h5>Number of GP's: {{ season.num_gp }}</h5>
+    <h5>Number of scuderias: {{ season.num_scuderias }}</h5>
+    <h5>World champion: {{ season.world_champion }}</h5>
+</ul>
 
     <div align="center" >
+        {% if user == season.user %}
+            <a type="button"  class="btn btn-dark">edit</a>
+        {% endif %}
         <a href="{% url 'season' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}
