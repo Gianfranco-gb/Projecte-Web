@@ -16,7 +16,7 @@ def step_impl(context, username, password):
     form = context.browser.find_by_tag('form').first
     context.browser.fill('username', username)
     context.browser.fill('password', password)
-    form.find_by_value('login').first.click()
+    form.find_by_value('Login').first.click()
 
 
 @then(u'Server responds with page containing "{message}"')
