@@ -2,8 +2,8 @@
 
 {% block headers %}
     <div align="center" >
-        <h1>Circuit - {{ circuit.name }}</h1>
-        {% if user == circuit.user %}
+        <h1>Season - {{ season.year }}</h1>
+        {% if user == season.user %}
             <a  type="button"  class="btn btn-dark">edit</a>
         {% endif %}
     </div>
@@ -13,8 +13,6 @@
 <!--Aqui el codi-->
 
     <div align="center" >
-        <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Return</a>
+        <a href="{% url 'season' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}
-
-

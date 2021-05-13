@@ -29,7 +29,6 @@ class Driver(models.Model):
     weight = models.IntegerField()
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
-    # S'ha de canviar aixo
     def get_absolute_url(self):
         return reverse('driver')
 
@@ -38,6 +37,10 @@ class StatisticsDriver(models.Model):
     name = models.CharField(max_length=200)
     num_of_championships = models.IntegerField()
     num_dif_teams = models.IntegerField()
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('stats')
 
 
 class Circuit(models.Model):
@@ -49,7 +52,6 @@ class Circuit(models.Model):
     lap_record = models.CharField(max_length=100)
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
-    # S'ha de canviar aixo
     def get_absolute_url(self):
         return reverse('circuit')
 
@@ -59,3 +61,7 @@ class Season(models.Model):
     num_gp = models.IntegerField()
     num_scuderias = models.IntegerField()
     world_champion = models.CharField(max_length=100)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('season')

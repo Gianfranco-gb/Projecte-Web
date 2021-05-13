@@ -1,23 +1,19 @@
-from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
-from django.utils import timezone
 from django.views.generic.detail import DetailView
+from django.contrib import auth
 
 from .forms import *
 from .models import *
 from django.views.generic.edit import CreateView
 
 
-class CheckIsOwnerMixin(object):
-    def get_object(self, *args, **kwargs):
-        obj = super(CheckIsOwnerMixin, self).get_object(*args, **kwargs)
-        if not obj.user == self.request.user:
-            raise PermissionDenied
-        return obj
-
-
 # Create your views here.
 def home(request):
+    return render(request, 'home.html')
+
+
+def logout(request):
+    auth.logout(request)
     return render(request, 'home.html')
 
 
@@ -33,14 +29,7 @@ def register(request):
     return render(request, 'register.html', {"form": form})
 
 
-def list_drivers(request):
-    queryset = Driver.objects.filter(date__lte=timezone.now()).order_by('-date')[:2]
-    context = {
-        "object": queryset
-    }
-    return render(request, "list_driver,html", context)
-
-
+# DRIVERS
 def drivers(request):
     driver = Driver.objects.all()
 
@@ -58,6 +47,16 @@ class driver_create(CreateView):
         return super().form_valid(form)
 
 
+class driver_detail(DetailView):
+    model = Driver
+    template_name = 'driver_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(driver_detail, self).get_context_data(**kwargs)
+        return context
+
+
+# CIRCUIT
 def circuits(request):
     circuit = Circuit.objects.all()
     context = {
@@ -85,6 +84,7 @@ class circuit_detail(DetailView):
         return context
 
 
+# SCUDERIA
 def scuderias(request):
     scuderia = Scuderia.objects.all()
     context = {
@@ -103,9 +103,66 @@ class scuderia_create(CreateView):
         return super(scuderia_create, self).form_valid(form)
 
 
+class scuderia_detail(DetailView):
+    model = Scuderia
+    template_name = 'scuderia_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(scuderia_detail, self).get_context_data(**kwargs)
+        return context
+
+
+# SEASONS
 def seasons(request):
-    return render(request, 'season.html')
+    season = Season.objects.all()
+    context = {
+        "seasons": season
+    }
+    return render(request, "season.html", context)
 
 
+class season_create(CreateView):
+    model = Season
+    template_name = 'register.html'
+    form_class = SeasonForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(season_create, self).form_valid(form)
+
+
+class season_detail(DetailView):
+    model = Season
+    template_name = 'season_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(season_detail, self).get_context_data(**kwargs)
+        return context
+
+
+# STATS
 def stats(request):
-    return render(request, 'stats.html')
+    stat = StatisticsDriver.objects.all()
+    context = {
+        "stats": stat
+    }
+    return render(request, "stat.html", context)
+
+
+class stats_create(CreateView):
+    model = StatisticsDriver
+    template_name = 'register.html'
+    form_class = StatForm
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(stats_create, self).form_valid(form)
+
+
+class stats_detail(DetailView):
+    model = StatisticsDriver
+    template_name = 'stat_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(stats_detail, self).get_context_data(**kwargs)
+        return context

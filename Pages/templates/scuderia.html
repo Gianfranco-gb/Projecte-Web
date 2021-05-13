@@ -11,7 +11,7 @@
 {% block page_content %}
     <ul>
         {% for scuderia in scuderias %}
-            <li>{{ scuderia.name }}</li>
+            <li><a href="{% url 'scuderia_detail' scuderia.id %}">{{ scuderia.name }}</a></li>
         {% empty %}<li>Sorry, no scuderias registered yet.</li>
         {% endfor %}
     </ul>

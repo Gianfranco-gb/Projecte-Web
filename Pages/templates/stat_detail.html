@@ -2,8 +2,8 @@
 
 {% block headers %}
     <div align="center" >
-        <h1>Circuit - {{ circuit.name }}</h1>
-        {% if user == circuit.user %}
+        <h1>Stat - {{ statisticsdriver.name }}</h1>
+        {% if user == statisticsdriver.user %}
             <a  type="button"  class="btn btn-dark">edit</a>
         {% endif %}
     </div>
@@ -12,9 +12,8 @@
 {% block page_content %}
 <!--Aqui el codi-->
 
+
     <div align="center" >
-        <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Return</a>
+        <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}
-
-

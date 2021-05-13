@@ -29,3 +29,15 @@ class DriverForm(ModelForm):
     class Meta:
         model = Driver
         exclude = ("user",)
+
+
+class SeasonForm(ModelForm):
+    class Meta:
+        model = Season
+        exclude = ("user",)
+
+
+class StatForm(ModelForm):
+    class Meta:
+        model = StatisticsDriver
+        exclude = ("user",)

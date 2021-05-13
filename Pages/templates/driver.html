@@ -13,7 +13,7 @@
 {% block page_content %}
     <ul>
         {% for driver in drivers %}
-            <li>{{ driver.name }}</li>
+            <li><a href="{% url 'driver_detail' driver.id %}">{{ driver.name }}</a></li>
         {% empty %}<li>Sorry, no drivers registered yet.</li>
         {% endfor %}
     </ul>
