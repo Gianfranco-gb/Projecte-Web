@@ -32,8 +32,8 @@ def step_impl(context):
 @then(u'I\'m viewing the details page for circuit by "{username}"')
 def step_impl(context, username):
     q_list = [Q((attribute, context.table.rows[0][attribute])) for attribute in context.table.headings]
-    # from django.contrib.auth.models import User
-    # q_list.append(Q(('user', User.objects.get(username=username))))
+    from django.contrib.auth.models import User
+    q_list.append(Q(('user', User.objects.get(username=username))))
     from Pages.models import Circuit
     circuit = Circuit.objects.filter(reduce(operator.and_, q_list)).get()
     assert context.browser.url == context.get_url(circuit)

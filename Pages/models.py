@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls.base import reverse
+
 import formula1_project
 
 
@@ -22,6 +24,10 @@ class Driver(models.Model):
     height = models.IntegerField()
     weight = models.IntegerField()
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    # S'ha de canviar aixo
+    def get_absolute_url(self):
+        return reverse('driver')
 
 
 class StatisticsDriver(models.Model):
