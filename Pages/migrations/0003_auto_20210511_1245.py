@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('Pages', '0003_rename_namedriver_statisticsdriver_name'),
+        ('Pages', '0002_auto_20210511_1849'),
     ]
 
     operations = [

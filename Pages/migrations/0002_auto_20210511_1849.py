@@ -13,23 +13,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='StatisticsScuderia',
-        ),
-        migrations.RenameField(
-            model_name='scuderia',
-            old_name='colors',
-            new_name='main_color',
-        ),
-        migrations.RenameField(
-            model_name='statisticsdriver',
-            old_name='nameDriver',
-            new_name='name',
-        ),
-        migrations.RemoveField(
-            model_name='circuit',
-            name='race_distance',
-        ),
         migrations.RemoveField(
             model_name='scuderia',
             name='description',

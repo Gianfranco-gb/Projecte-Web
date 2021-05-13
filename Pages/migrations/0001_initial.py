@@ -20,7 +20,6 @@ class Migration(migrations.Migration):
                 ('circuit_length', models.IntegerField()),
                 ('laps_in_race', models.IntegerField()),
                 ('first_gp', models.IntegerField()),
-                ('race_distance', models.IntegerField()),
                 ('lap_record', models.CharField(max_length=100)),
             ],
         ),
@@ -30,7 +29,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=200)),
                 ('description', models.CharField(max_length=400)),
-                ('colors', models.CharField(max_length=100)),
+                ('main_color', models.CharField(max_length=100)),
                 ('principalDriver', models.CharField(max_length=200)),
                 ('secondaryDriver', models.CharField(max_length=200)),
                 ('num_championships', models.IntegerField()),
@@ -40,20 +39,11 @@ class Migration(migrations.Migration):
             name='StatisticsDriver',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nameDriver', models.CharField(max_length=200)),
+                ('name', models.CharField(max_length=200)),
                 ('num_of_championships', models.IntegerField()),
                 ('age_validity', models.IntegerField()),
                 ('num_dif_teams', models.IntegerField()),
                 ('name_dif_teams', models.CharField(max_length=100)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='StatisticsScuderia',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nameScuderia', models.CharField(max_length=100)),
-                ('age_of_birth', models.IntegerField()),
-                ('num_of_championships', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(

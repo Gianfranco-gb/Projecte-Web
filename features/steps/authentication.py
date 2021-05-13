@@ -12,7 +12,7 @@ def step_impl(context, username, password):
 # Aquest falla
 @given(u'I login as a user "{username}" with password "{password}"')
 def step_impl(context, username, password):
-    context.browser.visit(context.get_url('/login/'))
+    context.browser.visit(context.get_url('/login/?next=/'))
     form = context.browser.find_by_tag('form').first
     context.browser.fill('username', username)
     context.browser.fill('password', password)
