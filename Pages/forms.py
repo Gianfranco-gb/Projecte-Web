@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.forms.models import ModelForm
 
 from Pages.models import *
@@ -24,6 +23,7 @@ class ScuderiaForm(ModelForm):
     class Meta:
         model = Scuderia
         exclude = ("user",)
+
 
 class DriverForm(ModelForm):
     class Meta:

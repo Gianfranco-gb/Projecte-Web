@@ -16,7 +16,6 @@ Including another URLconf
 from django.urls import path
 from Pages import views
 from django.contrib.auth.decorators import login_required
-
 from Pages.views import *
 
 urlpatterns = [
@@ -31,6 +30,5 @@ urlpatterns = [
     path('stats/', login_required(views.stats), name="stats"),
     path('circuit/create', login_required(circuit_create.as_view()), name="circuit_create"),
     path('scuderia/create', login_required(scuderia_create.as_view()), name="scuderia_create"),
-    path('driver/create', login_required(driver_create.as_view()), name="driver_create"),
-
+    path('driver/create', driver_create.as_view(), name = "driver_create"),
 ]

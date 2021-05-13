@@ -1,14 +1,12 @@
-from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.utils.decorators import method_decorator
-from django.views.generic.edit import *
 
 from .forms import *
 from .models import *
 from django.contrib import auth, messages
 from django.contrib.auth.forms import AuthenticationForm
+from django.views.generic.edit import CreateView
 
 
 class CheckIsOwnerMixin(object):
@@ -29,6 +27,7 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
+    
         if user is not None:
             auth.login(request, user)
             return redirect("/")
@@ -55,7 +54,7 @@ def register(request):
     return render(request, 'register.html', {"form": form})
 
 
-def list_drivers(request, limit):
+def list_drivers(request):
     queryset = Driver.objects.filter(date__lte=timezone.now()).order_by('-date')[:2]
     context = {
         "object": queryset
@@ -70,15 +69,15 @@ def drivers(request):
     }
     return render(request, "driver.html", context)
 
+
 class driver_create(CreateView):
     model = Driver
-    template_name = 'register.html'
+    template_name = "form.html"
     form_class = DriverForm
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super(driver_create, self).form_valid(form)
-
+        return super().form_valid(form)
 
 def circuits(request):
     queryset = Circuit.objects.all()
@@ -122,6 +121,5 @@ def seasons(request):
 
 def stats(request):
     return render(request, 'stats.html')
-
 
 
