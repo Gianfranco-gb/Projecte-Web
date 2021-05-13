@@ -23,10 +23,11 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('circuit/', login_required(views.circuits), name="circuit"),
     path('driver/', login_required(views.drivers), name="driver"),
-    path('scuderia/', login_required(views.scuderia), name="scuderia"),
+    path('scuderia/', login_required(views.scuderias), name="scuderia"),
     path('season/', login_required(views.seasons), name="season"),
     path('stats/', login_required(views.stats), name="stats"),
     path('circuit/create', login_required(circuit_create.as_view()), name="circuit_create"),
     path('scuderia/create', login_required(scuderia_create.as_view()), name="scuderia_create"),
-    path('driver/create', driver_create.as_view(), name = "driver_create"),
+    path('driver/create', driver_create.as_view(), name="driver_create"),
+    path('circuit/<int:pk>', circuit_detail.as_view(), name="circuit_detail"),
 ]

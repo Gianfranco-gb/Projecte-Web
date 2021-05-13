@@ -15,6 +15,10 @@ class Scuderia(models.Model):
     num_championships = models.IntegerField()
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
+    # S'ha de canviar aixo
+    def get_absolute_url(self):
+        return reverse('scuderia')
+
 
 class Driver(models.Model):
     name = models.CharField(max_length=200)
@@ -44,6 +48,10 @@ class Circuit(models.Model):
     first_gp = models.IntegerField()
     lap_record = models.CharField(max_length=100)
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+
+    # S'ha de canviar aixo
+    def get_absolute_url(self):
+        return reverse('circuit')
 
 
 class Season(models.Model):

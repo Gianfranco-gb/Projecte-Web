@@ -10,8 +10,8 @@
 
 {% block page_content %}
     <ul>
-        {% for circuit in context %}
-            <li>{{ circuit.name }}</li>
+        {% for circuit in circuits %}
+            <li><a href="{% url 'circuit_detail' circuit.id %}">{{ circuit.name }}</a></li>
         {% empty %}<li>Sorry, no circuits registered yet.</li>
         {% endfor %}
     </ul>

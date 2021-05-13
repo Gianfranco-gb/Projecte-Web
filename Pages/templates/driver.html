@@ -12,7 +12,7 @@
 
 {% block page_content %}
     <ul>
-        {% for driver in context %}
+        {% for driver in drivers %}
             <li>{{ driver.name }}</li>
         {% empty %}<li>Sorry, no drivers registered yet.</li>
         {% endfor %}

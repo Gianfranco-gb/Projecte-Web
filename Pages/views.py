@@ -1,11 +1,10 @@
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.views.generic.detail import DetailView
 
 from .forms import *
 from .models import *
-from django.contrib import auth, messages
-from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView
 
 
@@ -43,11 +42,10 @@ def list_drivers(request):
 
 
 def drivers(request):
-    queryset = Driver.objects.all()
-    context = {
-        "object": queryset
-    }
-    return render(request, "driver.html", context)
+    driver = Driver.objects.all()
+
+    context = {'drivers': driver}
+    return render(request, 'driver.html', context)
 
 
 class driver_create(CreateView):
@@ -61,9 +59,9 @@ class driver_create(CreateView):
 
 
 def circuits(request):
-    queryset = Circuit.objects.all()
+    circuit = Circuit.objects.all()
     context = {
-        "object": queryset
+        "circuits": circuit
     }
     return render(request, "circuit.html", context)
 
@@ -78,10 +76,19 @@ class circuit_create(CreateView):
         return super(circuit_create, self).form_valid(form)
 
 
-def scuderia(request):
-    queryset = Scuderia.objects.all()
+class circuit_detail(DetailView):
+    model = Circuit
+    template_name = 'circuit_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(circuit_detail, self).get_context_data(**kwargs)
+        return context
+
+
+def scuderias(request):
+    scuderia = Scuderia.objects.all()
     context = {
-        "object": queryset
+        "scuderias": scuderia
     }
     return render(request, "scuderia.html", context)
 
@@ -102,5 +109,3 @@ def seasons(request):
 
 def stats(request):
     return render(request, 'stats.html')
-
-

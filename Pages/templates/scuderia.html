@@ -10,7 +10,7 @@
 
 {% block page_content %}
     <ul>
-        {% for scuderia in context %}
+        {% for scuderia in scuderias %}
             <li>{{ scuderia.name }}</li>
         {% empty %}<li>Sorry, no scuderias registered yet.</li>
         {% endfor %}
