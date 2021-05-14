@@ -144,7 +144,7 @@ def seasons(request):
 
 class season_create(CreateView):
     model = Season
-    template_name = 'register.html'
+    template_name = 'season/form_season.html'
     form_class = SeasonForm
 
     def form_valid(self, form):
@@ -172,7 +172,7 @@ def stats(request):
 
 class stats_create(CreateView):
     model = StatisticsDriver
-    template_name = 'register.html'
+    template_name = 'stats/form_stats.html'
     form_class = StatForm
 
     def form_valid(self, form):

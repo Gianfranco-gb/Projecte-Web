@@ -57,9 +57,9 @@ class Circuit(models.Model):
 
 
 class Season(models.Model):
-    year = models.IntegerField()
+    year = models.CharField(max_length= 200)
     num_gp = models.IntegerField()
-    num_scuderias = models.IntegerField()
+    num_scuderias = models.CharField(max_length=200)
     world_champion = models.CharField(max_length=100)
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 

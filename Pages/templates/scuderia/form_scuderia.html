@@ -8,13 +8,13 @@
                 $('#id_name').autocomplete({
                     source: function(request, response) {
                         $.ajax({
-                            url: "https://v1.formula-1.api-sports.io/circuits",
+                            url: "https://v1.formula-1.api-sports.io/teams",
                             dataType: "json",
                             data: {
                                 search: request.term
                             },
                             headers: {
-                                "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
+                                "x-rapidapi-key": "73023c39783f6ab714ffa7b325c9727a",
                                 "x-rapidapi-host": "v1.formula-1.api-sports.io"
                              
                             },
@@ -24,12 +24,12 @@
                                     return{
                                         id: item.id,
                                         value: item.name,
-                                        img : item.image,
-                                        competition : item.competition,
-                                        length : item.length,
-                                        capacity : item.capacity,
-                                        opened : item.opened,
-                                        owner : item.owner
+                                        logo: item.logo,
+                                        president: item.nationality,
+                                        director: item.birthdate,
+                                        technical_manager: item.teams,
+                                        engine: items.engine,
+                                        tyres: items.tyres
                                     }
                                 
                                 }));
@@ -40,10 +40,7 @@
                     select: function(event, ui ) {
                         if(ui.item){
                             $("#id_name").val(ui.item.name);
-                            $("#id_img").val(ui.item.img);
-                            $("#id_competition").val(ui.item.competition);
-                            $("#id_circuit_length").val(ui.item.length);
-                            $("#id_first_gp").val(ui.item.opened);
+                            $("#id_logo").val(ui.item.img);
                         }
                     }
                 });
