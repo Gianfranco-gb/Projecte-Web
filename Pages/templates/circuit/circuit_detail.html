@@ -3,16 +3,23 @@
 {% block headers %}
     <div align="center" >
         <h1>Circuit - {{ circuit.name }}</h1>
-        {% if user == circuit.user %}
-            <a  type="button" href="{% url 'circuit_edit' circuit.id%}" class="btn btn-dark">edit</a>
-        {% endif %}
     </div>
 
 {% endblock %}
 {% block page_content %}
 <!--Aqui el codi-->
-
+<ul>
+    <h5>Country: {{ circuit.country }}</h5>
+    <h5>Circuit length: {{ circuit.circuit_length }}</h5>
+    <h5>Laps in race: {{ circuit.laps_in_race }}</h5>
+    <h5>First GP: {{ circuit.first_gp }}</h5>
+    <h5>Lap record: {{ circuit.lap_record }}</h5>
+</ul>
     <div align="center" >
+        {% if user == circuit.user %}
+            <a  type="button" href="{% url 'circuit_edit' circuit.id%}" class="btn btn-dark">Edit</a>
+            <a  type="button" href="{% url 'circuit_delete' circuit.id%}" class="btn btn-dark">Delete</a>
+        {% endif %}
         <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}

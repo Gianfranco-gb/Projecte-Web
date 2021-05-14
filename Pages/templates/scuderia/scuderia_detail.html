@@ -16,7 +16,8 @@
 </ul>
     <div align="center" >
         {% if user == scuderia.user %}
-            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark">edit</a>
+            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark">Edit</a>
+            <a type="button" href="{% url 'scuderia_delete' scuderia.id%}" class="btn btn-dark">Delete</a>
         {% endif %}
         <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Return</a>
     </div>

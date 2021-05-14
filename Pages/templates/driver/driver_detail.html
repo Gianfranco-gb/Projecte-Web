@@ -3,16 +3,25 @@
 {% block headers %}
     <div align="center" >
         <h1>Driver - {{ driver.name }}</h1>
-        {% if user == driver.user %}
-            <a  type="button"  href="{% url 'driver_edit' driver.id%}"  class="btn btn-dark">edit</a>
-        {% endif %}
+
     </div>
 {% endblock %}
 {% block page_content %}
 <!--Aqui el codi-->
+<ul>
+    <h5>Age: {{ driver.age }}</h5>
+    <h5>Nationality: {{ driver.nationality }}</h5>
+    <h5>Scuderia: {{ driver.scuderia }}</h5>
+    <h5>Height: {{ driver.height }}</h5>
+    <h5>Weight: {{ driver.weight }}</h5>
 
+</ul>
 
     <div align="center" >
+        {% if user == driver.user %}
+            <a  type="button" href="{% url 'driver_edit' driver.id%}"  class="btn btn-dark">Edit</a>
+            <a  type="button" href="{% url 'driver_delete' driver.id%}" class="btn btn-dark">Delete</a>
+        {% endif %}
         <a href="{% url 'driver' %}" type="button" class="btn btn-dark">Return</a>
     </div>
 {% endblock %}

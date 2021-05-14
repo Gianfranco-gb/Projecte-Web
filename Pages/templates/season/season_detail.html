@@ -15,7 +15,8 @@
 
     <div align="center" >
         {% if user == season.user %}
-            <a type="button" href="{% url 'season_edit' season.id%}" class="btn btn-dark">edit</a>
+            <a type="button" href="{% url 'season_edit' season.id%}" class="btn btn-dark">Edit</a>
+            <a type="button" href="{% url 'season_delete' season.id%}" class="btn btn-dark">Delete</a>
         {% endif %}
         <a href="{% url 'season' %}" type="button" class="btn btn-dark">Return</a>
     </div>

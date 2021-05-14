@@ -14,7 +14,8 @@
 
     <div align="center" >
         {% if user == statisticsdriver.user %}
-            <a  type="button" href="{% url 'stats_edit' statisticsdriver.id%}" class="btn btn-dark">edit</a>
+            <a  type="button" href="{% url 'stats_edit' statisticsdriver.id%}" class="btn btn-dark">Edit</a>
+            <a  type="button" href="{% url 'stats_delete' statisticsdriver.id%}" class="btn btn-dark">Delete</a>
         {% endif %}
         <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Return</a>
     </div>
