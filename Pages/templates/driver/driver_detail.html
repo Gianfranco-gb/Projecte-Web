@@ -4,12 +4,13 @@
     <div align="center" >
         <h1>Driver - {{ driver.name }}</h1>
         {% if user == driver.user %}
-            <a  type="button" href="{% url 'driver_edit' driver.id%}"  class="btn btn-dark" style="background-color:orange">Edit</a>
+            <a  type="button" href="{% url 'driver_edit' driver.id%}"  class="btn btn-dark" style="background-color:orange;margin-right:10px">Edit</a>
             <a  type="button" href="{% url 'driver_delete' driver.id%}" class="btn btn-dark" style="background-color:red">Delete</a>
         {% endif %}
     </div>
 
 {% endblock %}
+
 {% block page_content %}
     <ul>
         <div class="card-header-tabs">

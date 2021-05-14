@@ -4,7 +4,7 @@
     <div align="center" >
         <h1>Season - {{ season.year }}</h1>
         {% if user == season.user %}
-            <a type="button" href="{% url 'season_edit' season.id%}" class="btn btn-dark" style="background-color:orange">Edit</a>
+            <a type="button" href="{% url 'season_edit' season.id%}" class="btn btn-dark" style="background-color:orange;margin-right:10px">Edit</a>
             <a type="button" href="{% url 'season_delete' season.id%}" class="btn btn-dark" style="background-color:red">Delete</a>
         {% endif %}
     </div>

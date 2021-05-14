@@ -4,7 +4,7 @@
     <div align="center" >
         <h1>Scuderia - {{ scuderia.name }}</h1>
         {% if user == scuderia.user %}
-            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark" style="background-color:orange">Edit</a>
+            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark" style="background-color:orange;margin-right:10px">Edit</a>
             <a type="button" href="{% url 'scuderia_delete' scuderia.id%}" class="btn btn-dark" style="background-color:red">Delete</a>
         {% endif %}
     </div>

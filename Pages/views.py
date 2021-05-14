@@ -78,6 +78,17 @@ class driver_detail(DetailView):
         return context
 
 
+def driver_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Driver, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/drivers/")
+
+    return render(request, "confirm_delete.html", context)
+
+
 # CIRCUIT
 def circuits(request):
     circuit = Circuit.objects.all()
@@ -104,6 +115,17 @@ class circuit_detail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(circuit_detail, self).get_context_data(**kwargs)
         return context
+
+
+def circuit_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Circuit, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/circuits/")
+
+    return render(request, "confirm_delete.html", context)
 
 
 # SCUDERIA
@@ -134,6 +156,17 @@ class scuderia_detail(DetailView):
         return context
 
 
+def scuderia_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Scuderia, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/scuderias/")
+
+    return render(request, "confirm_delete.html", context)
+
+
 # SEASONS
 def seasons(request):
     season = Season.objects.all()
@@ -162,6 +195,17 @@ class season_detail(DetailView):
         return context
 
 
+def season_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Season, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/seasons/")
+
+    return render(request, "confirm_delete.html", context)
+
+
 # STATS
 def stats(request):
     stat = StatisticsDriver.objects.all()
@@ -188,50 +232,6 @@ class stats_detail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(stats_detail, self).get_context_data(**kwargs)
         return context
-
-
-def driver_delete_view(request, pk):
-    context = {}
-
-    obj = get_object_or_404(Driver, id=pk)
-    if request.method == "POST":
-        obj.delete()
-        return HttpResponseRedirect("/drivers/")
-
-    return render(request, "confirm_delete.html", context)
-
-
-def circuit_delete_view(request, pk):
-    context = {}
-
-    obj = get_object_or_404(Circuit, id=pk)
-    if request.method == "POST":
-        obj.delete()
-        return HttpResponseRedirect("/circuits/")
-
-    return render(request, "confirm_delete.html", context)
-
-
-def season_delete_view(request, pk):
-    context = {}
-
-    obj = get_object_or_404(Season, id=pk)
-    if request.method == "POST":
-        obj.delete()
-        return HttpResponseRedirect("/seasons/")
-
-    return render(request, "confirm_delete.html", context)
-
-
-def scuderia_delete_view(request, pk):
-    context = {}
-
-    obj = get_object_or_404(Scuderia, id=pk)
-    if request.method == "POST":
-        obj.delete()
-        return HttpResponseRedirect("/scuderias/")
-
-    return render(request, "confirm_delete.html", context)
 
 
 def stat_delete_view(request, pk):
