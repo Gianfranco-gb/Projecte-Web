@@ -4,7 +4,7 @@
     <div align="center" >
         <h1>Circuit - {{ circuit.name }}</h1>
         {% if user == circuit.user %}
-            <a  type="button"  class="btn btn-dark">edit</a>
+            <a  type="button" href="{% url 'circuit_edit' circuit.id%}" class="btn btn-dark">edit</a>
         {% endif %}
     </div>
 

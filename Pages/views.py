@@ -1,10 +1,31 @@
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.contrib import auth
 
 from .forms import *
 from .models import *
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
+
+
+class LoginRequiredMixin(object):
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(LoginRequiredMixin, self).dispatch(*args, **kwargs)
+
+
+class CheckIsOwnerMixin(object):
+    def get_object(self, *args, **kwargs):
+        obj = super(CheckIsOwnerMixin, self).get_object(*args, **kwargs)
+        if not obj.user == self.request.user:
+            raise PermissionDenied
+        return obj
+
+
+class LoginRequiredCheckIsOwnerUpdateView(LoginRequiredMixin, CheckIsOwnerMixin, UpdateView):
+    template_name = ''
 
 
 # Create your views here.
@@ -34,12 +55,12 @@ def drivers(request):
     driver = Driver.objects.all()
 
     context = {'drivers': driver}
-    return render(request, 'driver.html', context)
+    return render(request, 'driver/driver.html', context)
 
 
 class driver_create(CreateView):
     model = Driver
-    template_name = "form_driver.html"
+    template_name = "driver/form_driver.html"
     form_class = DriverForm
 
     def form_valid(self, form):
@@ -49,7 +70,7 @@ class driver_create(CreateView):
 
 class driver_detail(DetailView):
     model = Driver
-    template_name = 'driver_detail.html'
+    template_name = 'driver/driver_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(driver_detail, self).get_context_data(**kwargs)
@@ -62,12 +83,12 @@ def circuits(request):
     context = {
         "circuits": circuit
     }
-    return render(request, "circuit.html", context)
+    return render(request, "circuit/circuit.html", context)
 
 
 class circuit_create(CreateView):
     model = Circuit
-    template_name = 'form_circuit.html'
+    template_name = 'circuit/form_circuit.html'
     form_class = CircuitForm
 
     def form_valid(self, form):
@@ -77,7 +98,7 @@ class circuit_create(CreateView):
 
 class circuit_detail(DetailView):
     model = Circuit
-    template_name = 'circuit_detail.html'
+    template_name = 'circuit/circuit_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(circuit_detail, self).get_context_data(**kwargs)
@@ -90,7 +111,7 @@ def scuderias(request):
     context = {
         "scuderias": scuderia
     }
-    return render(request, "scuderia.html", context)
+    return render(request, "scuderia/scuderia.html", context)
 
 
 class scuderia_create(CreateView):
@@ -105,7 +126,7 @@ class scuderia_create(CreateView):
 
 class scuderia_detail(DetailView):
     model = Scuderia
-    template_name = 'scuderia_detail.html'
+    template_name = 'scuderia/scuderia_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(scuderia_detail, self).get_context_data(**kwargs)
@@ -118,7 +139,7 @@ def seasons(request):
     context = {
         "seasons": season
     }
-    return render(request, "season.html", context)
+    return render(request, "season/season.html", context)
 
 
 class season_create(CreateView):
@@ -133,7 +154,7 @@ class season_create(CreateView):
 
 class season_detail(DetailView):
     model = Season
-    template_name = 'season_detail.html'
+    template_name = 'season/season_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(season_detail, self).get_context_data(**kwargs)
@@ -146,7 +167,7 @@ def stats(request):
     context = {
         "stats": stat
     }
-    return render(request, "stat.html", context)
+    return render(request, "stats/stat.html", context)
 
 
 class stats_create(CreateView):
@@ -161,7 +182,7 @@ class stats_create(CreateView):
 
 class stats_detail(DetailView):
     model = StatisticsDriver
-    template_name = 'stat_detail.html'
+    template_name = 'stats/stat_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(stats_detail, self).get_context_data(**kwargs)

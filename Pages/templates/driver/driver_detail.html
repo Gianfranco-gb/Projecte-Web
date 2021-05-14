@@ -4,7 +4,7 @@
     <div align="center" >
         <h1>Driver - {{ driver.name }}</h1>
         {% if user == driver.user %}
-            <a  type="button"  class="btn btn-dark">edit</a>
+            <a  type="button"  href="{% url 'driver_edit' driver.id%}"  class="btn btn-dark">edit</a>
         {% endif %}
     </div>
 {% endblock %}
