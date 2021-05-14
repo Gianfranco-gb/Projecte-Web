@@ -139,7 +139,7 @@ def scuderias(request):
 
 class scuderia_create(CreateView):
     model = Scuderia
-    template_name = 'register.html'
+    template_name = 'scuderia/form_scuderia.html'
     form_class = ScuderiaForm
 
     def form_valid(self, form):

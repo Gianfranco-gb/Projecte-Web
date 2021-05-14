@@ -1,69 +1,81 @@
 {% extends "base.html" %}
 
+{% block headers %}
+    <div class="card-header-tabs card-body" >
+        <h1>
+        <u>Register a Season</u>
+        </h1>
+    </div>
+
+{% endblock %}
+
 {% block page_content %}
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(document).ready(function(){
-            var num = 0;
-            let champ;
-            
-            $( "#id_year" ).blur(function() {       
-                $.ajax({
-                    url: "https://v1.formula-1.api-sports.io/rankings/teams",
-                    dataType: "json",
-                    data: {
-                        season: $("#id_year").val(),
-                            
-                    },
-                    headers: {
-                        "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
-                        "x-rapidapi-host": "v1.formula-1.api-sports.io"
-                             
-                    },
-                    success: function(data){
-                        $.each(data, function(elemento, indice){
-                            num = indice.length;
-                        });
-                        $("#id_num_scuderias").val(num);
-                    }
-                });
-                $.ajax({
-                    url: "https://v1.formula-1.api-sports.io/rankings/drivers",
-                    dataType: "json",
-                    data: {
-                        season: $('#id_year').val(),
-                    },
-                    headers: {
-                        "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
-                        "x-rapidapi-host": "v1.formula-1.api-sports.io"
-                             
-                    },
-                    success: function(data){
-                        $.each( data.response, function(indice,valor){
-                            if(indice == 0){
-                                $.each(valor.driver, function(index,value){
-                                    if(index == 'name'){
-                                        console.log(value);
-                                        champ = value;
-                                        console.log(champ);
-                                    }
-                                });
-                            }
-                        });    
-                        $("#id_world_champion").val(champ);
-                    }
+    <div class="card-body">
+        <script>
+            $(document).ready(function(){
+                var num = 0;
+                let champ;
+                
+                $( "#id_year" ).blur(function() {       
+                    $.ajax({
+                        url: "https://v1.formula-1.api-sports.io/rankings/teams",
+                        dataType: "json",
+                        data: {
+                            season: $("#id_year").val(),
+                                
+                        },
+                        headers: {
+                            "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
+                            "x-rapidapi-host": "v1.formula-1.api-sports.io"
+                                
+                        },
+                        success: function(data){
+                            $.each(data, function(elemento, indice){
+                                num = indice.length;
+                            });
+                            $("#id_num_scuderias").val(num);
+                        }
+                    });
+                    $.ajax({
+                        url: "https://v1.formula-1.api-sports.io/rankings/drivers",
+                        dataType: "json",
+                        data: {
+                            season: $('#id_year').val(),
+                        },
+                        headers: {
+                            "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
+                            "x-rapidapi-host": "v1.formula-1.api-sports.io"
+                                
+                        },
+                        success: function(data){
+                            $.each( data.response, function(indice,valor){
+                                if(indice == 0){
+                                    $.each(valor.driver, function(index,value){
+                                        if(index == 'name'){
+                                            console.log(value);
+                                            champ = value;
+                                            console.log(champ);
+                                        }
+                                    });
+                                }
+                            });    
+                            $("#id_world_champion").val(champ);
+                        }
+                    });
                 });
             });
-        });
-            
-    </script>
-    <form method="post" enctype="multipart/form-data" action="">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit"/>
-    </form>
+                
+        </script>
+        <form method="post" enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <p></p>
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
 
 {% endblock %}
