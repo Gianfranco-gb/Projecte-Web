@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+                $('#id_name').autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: "https://v1.formula-1.api-sports.io/circuits",
+                            dataType: "json",
+                            data: {
+                                search: request.term
+                            },
+                            headers: {
+                                "x-rapidapi-key": "73023c39783f6ab714ffa7b325c9727a",
+                                "x-rapidapi-host": "v1.formula-1.api-sports.io"
+                             
+                            },
+                            success: function(data){
+                                response( $.map( data.response, function(item){
+                                
+                                    return{
+                                        id: item.id,
+                                        value: item.name,
+                                        img : item.image,
+                                        competition : item.competition,
+                                        length : item.length,
+                                        capacity : item.capacity,
+                                        opened : item.opened,
+                                        owner : item.owner
+                                    }
+                                
+                                }));
+                            }
+                        });
+                    },
+                    minLength:3,
+                    select: function(event, ui ) {
+                        if(ui.item){
+                            $("#id_name").val(ui.item.name);
+                            $("#id_img").val(ui.item.img);
+                            $("#id_competition").val(ui.item.competition);
+                            $("#id_circuit_length").val(ui.item.length);
+                            $("#id_first_gp").val(ui.item.opened);
+                        }
+                    }
+                });
+        });
+    </script>
+    <form method="post" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit"/>
+    </form>
+
+{% endblock %}

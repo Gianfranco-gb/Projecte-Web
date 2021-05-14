@@ -39,7 +39,7 @@ def drivers(request):
 
 class driver_create(CreateView):
     model = Driver
-    template_name = "form.html"
+    template_name = "form_driver.html"
     form_class = DriverForm
 
     def form_valid(self, form):
@@ -67,7 +67,7 @@ def circuits(request):
 
 class circuit_create(CreateView):
     model = Circuit
-    template_name = 'register.html'
+    template_name = 'form_circuit.html'
     form_class = CircuitForm
 
     def form_valid(self, form):

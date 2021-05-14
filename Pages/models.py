@@ -46,9 +46,9 @@ class StatisticsDriver(models.Model):
 class Circuit(models.Model):
     name = models.CharField(max_length=200)
     country = models.CharField(max_length=100)
-    circuit_length = models.IntegerField()
+    circuit_length = models.CharField(max_length=20)
     laps_in_race = models.IntegerField()
-    first_gp = models.IntegerField()
+    first_gp = models.CharField(max_length=20)
     lap_record = models.CharField(max_length=100)
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
