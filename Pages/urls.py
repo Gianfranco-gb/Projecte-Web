@@ -41,18 +41,30 @@ urlpatterns = [
     path('circuit/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
              model=Circuit,
-             form_class=CircuitForm, template_name='form_circuit.html'),
+             form_class=CircuitForm, template_name='circuit/form_circuit.html'),
          name='circuit_edit'),
 
     path('driver/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
              model=Driver,
-             form_class=DriverForm, template_name='form_driver.html'),
+             form_class=DriverForm, template_name='driver/form_driver.html'),
          name='driver_edit'),
 
     path('scuderia/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
-             model=Driver,
-             form_class=DriverForm, template_name='register.html'),
+             model=Scuderia,
+             form_class=ScuderiaForm, template_name='register.html'),
          name='scuderia_edit'),
+
+    path('season/<int:pk>/edit',
+         LoginRequiredCheckIsOwnerUpdateView.as_view(
+             model=Season,
+             form_class=SeasonForm, template_name='register.html'),
+         name='season_edit'),
+
+    path('stats/<int:pk>/edit',
+         LoginRequiredCheckIsOwnerUpdateView.as_view(
+             model=StatisticsDriver,
+             form_class=StatForm, template_name='register.html'),
+         name='stats_edit'),
 ]

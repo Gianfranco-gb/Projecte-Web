@@ -7,7 +7,6 @@
 
 {% endblock %}
 {% block page_content %}
-<!--Aqui el codi-->
 <ul>
     <h5>Number of championships: {{ statisticsdriver.num_of_championships }}</h5>
     <h5>Number of diferent teams: {{ statisticsdriver.num_dif_teams }}</h5>
@@ -15,7 +14,7 @@
 
     <div align="center" >
         {% if user == statisticsdriver.user %}
-            <a  type="button"  class="btn btn-dark">edit</a>
+            <a  type="button" href="{% url 'stats_edit' statisticsdriver.id%}" class="btn btn-dark">edit</a>
         {% endif %}
         <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Return</a>
     </div>

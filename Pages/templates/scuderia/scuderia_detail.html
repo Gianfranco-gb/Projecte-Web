@@ -7,7 +7,6 @@
 
 {% endblock %}
 {% block page_content %}
-<!--Aqui el codi-->
 <ul>
     <h5>Main color: {{ scuderia.main_color }}</h5>
     <h5>Principal Driver: {{ scuderia.principalDriver }}</h5>
@@ -17,7 +16,7 @@
 </ul>
     <div align="center" >
         {% if user == scuderia.user %}
-            <a type="button"  class="btn btn-dark">edit</a>
+            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark">edit</a>
         {% endif %}
         <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Return</a>
     </div>
