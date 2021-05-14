@@ -15,7 +15,6 @@ class Scuderia(models.Model):
     num_championships = models.IntegerField()
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
-    # S'ha de canviar aixo
     def get_absolute_url(self):
         return reverse('scuderia')
 

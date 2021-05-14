@@ -3,24 +3,49 @@
 {% block headers %}
     <div align="center" >
         <h1>Circuit - {{ circuit.name }}</h1>
+        {% if user == circuit.user %}
+            <a  type="button" href="{% url 'circuit_edit' circuit.id%}" class="btn btn-dark" style="background-color:orange">Edit</a>
+            <a  type="button" href="{% url 'circuit_delete' circuit.id%}" class="btn btn-dark" style="background-color:red">Delete</a>
+        {% endif %}
     </div>
 
 {% endblock %}
 {% block page_content %}
-<!--Aqui el codi-->
-<ul>
-    <h5>Country: {{ circuit.country }}</h5>
-    <h5>Circuit length: {{ circuit.circuit_length }}</h5>
-    <h5>Laps in race: {{ circuit.laps_in_race }}</h5>
-    <h5>First GP: {{ circuit.first_gp }}</h5>
-    <h5>Lap record: {{ circuit.lap_record }}</h5>
-</ul>
+    <ul>
+        <div class="card-header-tabs">
+            <h3>
+                <u>Circuit data</u>
+            </h3>
+        </div>
+        <div class="card-body">
+            <h5>
+                <b>Name: </b>
+                {{ circuit.name }}
+            </h5>
+            <h5>
+                <b>Country: </b>
+                {{ circuit.country }}
+            </h5>
+            <h5>
+                <b>Circuit length: </b>
+                {{ circuit.circuit_length }}
+            </h5>
+            <h5>
+                <b>Laps in race: </b>
+                {{ circuit.laps_in_race }}
+            </h5>
+            <h5>
+                <b>First GP: </b>
+                {{ circuit.first_gp }}
+            </h5>
+            <h5>
+                <b>Lap record: </b>
+                {{ circuit.lap_record }}
+            </h5>
+        </div>
+    </ul>
     <div align="center" >
-        {% if user == circuit.user %}
-            <a  type="button" href="{% url 'circuit_edit' circuit.id%}" class="btn btn-dark">Edit</a>
-            <a  type="button" href="{% url 'circuit_delete' circuit.id%}" class="btn btn-dark">Delete</a>
-        {% endif %}
-        <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Return</a>
+        <a href="{% url 'circuit' %}" type="button" class="btn btn-dark" style="background-color:gray">Return</a>
     </div>
 {% endblock %}
 

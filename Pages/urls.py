@@ -67,4 +67,17 @@ urlpatterns = [
              model=StatisticsDriver,
              form_class=StatForm, template_name='register.html'),
          name='stats_edit'),
+
+    path('circuit/<int:pk>/delete', views.circuit_delete_view, name='circuit_delete'),
+    path('driver/<int:pk>/delete', views.driver_delete_view, name='driver_delete'),
+    path('scuderia/<int:pk>/delete', views.scuderia_delete_view, name='scuderia_delete'),
+    path('season/<int:pk>/delete', views.season_delete_view, name='season_delete'),
+    path('stats/<int:pk>/delete', views.stat_delete_view, name='stats_delete'),
+
+
+    path('circuit/<int:pk>/delete', views.circuit_delete_view, name='circuit_delete'),
+    path('driver/<int:pk>/delete', views.driver_delete_view, name='driver_delete'),
+    path('scuderia/<int:pk>/delete', views.scuderia_delete_view, name='scuderia_delete'),
+    path('season/<int:pk>/delete', views.season_delete_view, name='season_delete'),
+    path('stats/<int:pk>/delete', views.stat_delete_view, name='stats_delete'),
 ]

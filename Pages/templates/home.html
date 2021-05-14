@@ -7,18 +7,12 @@
                 <br/>
                 <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
                 <p></p>
-                <a href="{% url 'login' %}" type="button" class="btn btn-dark">Log In</a>
-                <a href="{% url 'register' %}" type="button" class="btn btn-dark">Register</a>
-
             </center>
         {% endif %}
 
         {% if user.is_authenticated %}
-            <div style="text-align: right">
-                <p></p>
-                <a href="{% url 'logout' %}"  type="button" class="btn btn-dark">Log out</a>
-            </div>
             <center>
+                <p></p>
                 <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
                 <p></p>
                 <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Circuits</a>

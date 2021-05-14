@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from django.shortcuts import render, redirect
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.generic.detail import DetailView
 from django.contrib import auth
 
 from .forms import *
 from .models import *
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 class LoginRequiredMixin(object):
@@ -187,3 +188,58 @@ class stats_detail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(stats_detail, self).get_context_data(**kwargs)
         return context
+
+
+def driver_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Driver, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/drivers/")
+
+    return render(request, "confirm_delete.html", context)
+
+
+def circuit_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Circuit, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/circuits/")
+
+    return render(request, "confirm_delete.html", context)
+
+
+def season_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Season, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/seasons/")
+
+    return render(request, "confirm_delete.html", context)
+
+
+def scuderia_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(Scuderia, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/scuderias/")
+
+    return render(request, "confirm_delete.html", context)
+
+
+def stat_delete_view(request, pk):
+    context = {}
+
+    obj = get_object_or_404(StatisticsDriver, id=pk)
+    if request.method == "POST":
+        obj.delete()
+        return HttpResponseRedirect("/stats/")
+
+    return render(request, "confirm_delete.html", context)

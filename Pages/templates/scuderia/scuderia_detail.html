@@ -3,22 +3,44 @@
 {% block headers %}
     <div align="center" >
         <h1>Scuderia - {{ scuderia.name }}</h1>
+        {% if user == scuderia.user %}
+            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark" style="background-color:orange">Edit</a>
+            <a type="button" href="{% url 'scuderia_delete' scuderia.id%}" class="btn btn-dark" style="background-color:red">Delete</a>
+        {% endif %}
     </div>
 
 {% endblock %}
 {% block page_content %}
-<ul>
-    <h5>Main color: {{ scuderia.main_color }}</h5>
-    <h5>Principal Driver: {{ scuderia.principalDriver }}</h5>
-    <h5>Secondary Driver: {{ scuderia.secondaryDriver }}</h5>
-    <h5>Number of championships: {{ scuderia.num_championships }}</h5>
-
-</ul>
+    <ul>
+        <div class="card-header-tabs">
+            <h3>
+                <u>Scuderia data</u>
+            </h3>
+        </div>
+        <div class="card-body">
+            <h5>
+                <b>Name: </b>
+                {{ scuderia.name }}
+            </h5>
+            <h5>
+                <b>Main color: </b>
+                {{ scuderia.main_color }}
+            </h5>
+            <h5>
+                <b>Principal Driver: </b>
+                {{ scuderia.principalDriver }}
+            </h5>
+            <h5>
+                <b>Secondary Driver: </b>
+                {{ scuderia.secondaryDriver }}
+            </h5>
+            <h5>
+                <b>Number of championships: </b>
+                {{ scuderia.num_championships }}
+            </h5>
+        </div>
+    </ul>
     <div align="center" >
-        {% if user == scuderia.user %}
-            <a type="button" href="{% url 'scuderia_edit' scuderia.id%}" class="btn btn-dark">Edit</a>
-            <a type="button" href="{% url 'scuderia_delete' scuderia.id%}" class="btn btn-dark">Delete</a>
-        {% endif %}
-        <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Return</a>
+        <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark" style="background-color:gray">Return</a>
     </div>
 {% endblock %}
