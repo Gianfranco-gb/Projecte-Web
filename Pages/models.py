@@ -60,6 +60,7 @@ class Season(models.Model):
     num_gp = models.IntegerField()
     num_scuderias = models.CharField(max_length=200)
     world_champion = models.CharField(max_length=100)
+    scuderia_champion = models.CharField(max_length=200)
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

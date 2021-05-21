@@ -17,6 +17,7 @@
             $(document).ready(function(){
                 var num = 0;
                 let champ;
+                let champ_scu;
                 
                 $( "#id_year" ).blur(function() {       
                     $.ajax({
@@ -27,15 +28,26 @@
                                 
                         },
                         headers: {
-                            "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
+                            "x-rapidapi-key": "d5c9a1dac197da1fdb1873a7d4b49afa",
                             "x-rapidapi-host": "v1.formula-1.api-sports.io"
                                 
                         },
                         success: function(data){
-                            $.each(data, function(elemento, indice){
-                                num = indice.length;
+                            $.each(data, function(indice, elemento){
+                                num = elemento.length;
                             });
                             $("#id_num_scuderias").val(num);
+                            $.each(data.response, function(indice, elemento){
+                                if(indice == 0){                                   
+                                    $.each(elemento.team, function(indice2, elemento2){
+                                        if(indice2 == "name"){   
+                                            champ_scu = elemento2;
+                                        }
+                                    });
+                                }
+                                
+                            });
+                            $("#id_scuderia_champion").val(champ_scu);
                         }
                     });
                     $.ajax({
@@ -45,7 +57,7 @@
                             season: $('#id_year').val(),
                         },
                         headers: {
-                            "x-rapidapi-key": "304ce6e18505e3a256273e9ad49ba0bd",
+                            "x-rapidapi-key": "d5c9a1dac197da1fdb1873a7d4b49afa",
                             "x-rapidapi-host": "v1.formula-1.api-sports.io"
                                 
                         },
@@ -54,9 +66,7 @@
                                 if(indice == 0){
                                     $.each(valor.driver, function(index,value){
                                         if(index == 'name'){
-                                            console.log(value);
                                             champ = value;
-                                            console.log(champ);
                                         }
                                     });
                                 }
