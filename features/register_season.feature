@@ -1,7 +1,7 @@
 Feature: Register seasons
   In order to keep track of the seasons
   As a user
-  I want to register a season together with their year, num_gp, num_scuderias and world_champion
+  I want to register a season together with their year, num_gp, num_scuderias, world_champion and scuderia_champion
 
   Background: There is a registered user
     Given Exists a user "user" with password "password"

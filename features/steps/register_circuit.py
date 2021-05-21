@@ -49,7 +49,7 @@ def step_impl(context, count):
 def step_impl(context, name):
     from Pages.models import Circuit
     circuit = Circuit.objects.get(name=name)
-    context.browser.visit(context.get_url('circuit_edit'), circuit.pk)
+    context.browser.visit(context.get_url('circuit_edit', circuit.pk))
     if context.browser.url == context.get_url('circuit_edit', circuit.pk) and context.browser.find_by_tag('form'):
         form = context.browser.find_by_tag('form').first
         for h in context.table.headings:
