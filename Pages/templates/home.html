@@ -1,26 +1,47 @@
 {% extends "base.html" %}
 
-    {% block page_content %}
+{% block page_content %}
 
-        {% if not user.is_authenticated %}
-            <center>
-                <br/>
-                <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
-                <p></p>
-            </center>
-        {% endif %}
+{% if not user.is_authenticated %}
+<center>
+    <br/>
+    <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
+    <p></p>
+</center>
+<ul>
+    <div align="center">
+        <br/>
+        <h5>This is a formula 1 web page about giving information about circuits, drivers and so on.</h5>
+        <h5>In this page you can search for info or even include information in order to add interaction between
+            users.</h5>
+        <h5>You can interact with the page ONLY if you are registered and logged in, otherwise you cannot.</h5>
+        <br/>
+        <h5><b>Done by:</b></h5>
+        <div class="card-body">
 
-        {% if user.is_authenticated %}
-            <center>
-                <p></p>
-                <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
-                <p></p>
-                <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Circuits</a>
-                <a href="{% url 'driver' %}" type="button" class="btn btn-dark">Drivers</a>
-                <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Scuderias</a>
-                <a href="{% url 'season' %}" type="button" class="btn btn-dark">Seasons</a>
-                <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Stats</a>
-            </center>
-        {% endif %}
+            <h5>Xavier Reverter</h5>
+
+            <h5>Gianfranco Reyes</h5>
+
+            <h5>Ana Sánchez</h5>
+
+            <h5>Iñaki Serrano</h5>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <center>
+        <p></p>
+        <img src="https://www.actualidadmotor.com/wp-content/uploads/2020/01/f1-logo.png" width="750" height="300">
+        <p></p>
+        <a href="{% url 'circuit' %}" type="button" class="btn btn-dark">Circuits</a>
+        <a href="{% url 'driver' %}" type="button" class="btn btn-dark">Drivers</a>
+        <a href="{% url 'scuderia' %}" type="button" class="btn btn-dark">Scuderias</a>
+        <a href="{% url 'season' %}" type="button" class="btn btn-dark">Seasons</a>
+        <a href="{% url 'stats' %}" type="button" class="btn btn-dark">Stats</a>
+    </center>
+    {% endif %}
+
 
     {% endblock %}
