@@ -7,7 +7,7 @@ Feature: Register circuits
     Given Exists a user "user" with password "password"
 
   Scenario: Register a circuit with all elements defined before
-    Given I login as a user "user1" with password "password"
+    Given I login as a user "user" with password "password"
     When I register a circuit
       | name       | country | circuit_length | laps_in_race | first_gp | lap_record |
       | MonteCarlo | Monaco  | 3337           | 78           | 1950     | 1:14:260   |

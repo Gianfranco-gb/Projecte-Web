@@ -11,8 +11,7 @@ Feature: Edit scuderia
       | Ferrari | Red        | Charles Leclerc | Carlos Sainz    | 16                |
 
 
-
-  Scenario: Edit owned scuderia (have to edit all fields)
+  Scenario: Edit owned scuderia
     Given I login as a user "user1" with password "password1"
     When I edit the scuderia with name "Ferrari"
       | name    | main_color | principalDriver | secondaryDriver | num_championships |
@@ -21,16 +20,3 @@ Feature: Edit scuderia
       | name    | main_color | principalDriver | secondaryDriver | num_championships |
       | Ferrari | Red        | Charles Leclerc | Carlos Sainz    | 17                |
     And There is 1 scuderia
-
-  Scenario: Try to edit not owned scuderia
-    Given I login as a user "user2" with password "password"
-    When  I view the details for scuderia "Ferrari"
-    Then There is no "edit" link available
-
-
-  Scenario: Force edit scuderia but not the owner permission exception
-    Given I login as user "user2" with password "password"
-    When I edit the scuderia with name "Ferrari"
-      | name    | main_color | principalDriver | secondaryDriver | num_championships |
-      | Ferrari | Red        | Charles Leclerc | Carlos Sainz    | 17                |
-    Then Server responds with page containing "403 Forbidden"

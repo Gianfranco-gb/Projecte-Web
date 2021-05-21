@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block page_content %}
-<div class="main">
-    <!-- Create a Form -->
-    <form method="POST">
-        <!-- Security token by Django -->
-        {% csrf_token %}
-        <p></p>
-        Are you want to delete this item ?
-        <input type="submit" value="Yes" />
-        <a href="/">Cancel </a>
-    </form>
-</div>
+    <div class="main">
+        <!-- Create a Form -->
+        <form method="POST">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+            <p></p>
+            Are you want to delete this item ?
+            <input type="submit" value="Yes" />
+            <a href="/">Cancel </a>
+        </form>
+    </div>
 {% endblock %}

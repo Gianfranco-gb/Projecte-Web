@@ -14,7 +14,7 @@
         {% for stat in stats %}
             <li>
                 <h4>
-                    <a href="{% url 'stat_detail' stat.id %}">{{ stat.name }}</a>
+                    <a href="{% url 'stats_detail' stat.id %}">{{ stat.name }}</a>
                 </h4>
             </li>
             {% empty %}<li>Sorry, no stats registered yet.</li>

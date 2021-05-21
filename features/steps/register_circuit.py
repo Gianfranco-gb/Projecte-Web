@@ -29,11 +29,11 @@ def step_impl(context):
             form.find_by_value('Submit').first.click()
 
 
-@then(u'I\'m viewing the details page for circuit by "{username}"')
-def step_impl(context, username):
+@then(u'I\'m viewing the details page for circuit by "{user}"')
+def step_impl(context, user):
     q_list = [Q((attribute, context.table.rows[0][attribute])) for attribute in context.table.headings]
     from django.contrib.auth.models import User
-    q_list.append(Q(('user', User.objects.get(username=username))))
+    q_list.append(Q(('user', User.objects.get(username=user))))
     from Pages.models import Circuit
     circuit = Circuit.objects.filter(reduce(operator.and_, q_list)).get()
     assert context.browser.url == context.get_url(circuit)
@@ -51,17 +51,10 @@ def step_impl(context, name):
     circuit = Circuit.objects.get(name=name)
     context.browser.visit(context.get_url('circuit_edit'), circuit.pk)
     if context.browser.url == context.get_url('circuit_edit', circuit.pk) and context.browser.find_by_tag('form'):
-        form = context.browser.find_by_tag('form').first()
+        form = context.browser.find_by_tag('form').first
         for h in context.table.headings:
             context.browser.fill(h, context.table[0][h])
         form.find_by_value('Submit').first.click()
 
 
-@when(u'I edit current circuit')
-def step_impl(context):
-    context.browser.find_link_by_text('edit').click()
-    context.browser.visit(context.get_url('circuit_edit'))
-    form = context.browser.find_by_tag('form').first
-    for h in context.table.headings:
-        context.browser.fill(h, context.table[0][h])
-    form.find_by_value('Submit').first.click()
+

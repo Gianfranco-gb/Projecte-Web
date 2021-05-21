@@ -10,8 +10,8 @@ Feature: Register driver
     Given I login as a user "user" with password "password"
     When I register a driver
       | name            | age | nationality | scuderia  | height | weight |
-      | Fernando Alonso | 39  | Spain       | Alpine    | 1.71   | 68     |
+      | Fernando Alonso | 39  | Spain       | Alpine    | 171    | 68     |
     Then I'm viewing the details page for driver by "user"
       | name            | age | nationality | scuderia  | height | weight |
-      | Fernando Alonso | 39  | Spain       | Alpine    | 1.71   | 68     |
-    And there's 1 driver registered
+      | Fernando Alonso | 39  | Spain       | Alpine    | 171    | 68     |
+    And There is 1 driver

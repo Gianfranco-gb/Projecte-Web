@@ -9,7 +9,7 @@ use_step_matcher("parse")
 @given(u'Exists driver registered by "{user}"')
 def step_impl(context, user):
     from django.contrib.auth.models import User
-    user = User.objects.get(user=user)
+    user = User.objects.get(username=user)
     from Pages.models import Driver
     for row in context.table:
         driver = Driver(user=user)
@@ -33,13 +33,13 @@ def step_impl(context):
 def step_impl(context, user):
     q_list = [Q((attribute, context.table.rows[0][attribute])) for attribute in context.table.headings]
     from django.contrib.auth.models import User
-    q_list.append(Q(('user', User.objects.get(user=user))))
+    q_list.append(Q(('user', User.objects.get(username=user))))
     from Pages.models import Driver
     driver = Driver.objects.filter(reduce(operator.and_, q_list)).get()
     assert context.browser.url == context.get_url(driver)
 
 
-@then(u"There's {count:n} driver registered")
+@then(u"There is {count:n} driver")
 def step_impl(context, count):
     from Pages.models import Driver
     assert count == Driver.objects.count()
@@ -50,18 +50,11 @@ def step_impl(context, name):
     from Pages.models import Driver
     driver = Driver.objects.get(name=name)
     context.browser.visit(context.get_url('driver_edit', driver.pk))
-    if context.browser.url == context.get_url('driver_edit',driver.pk) and context.browser.find_by_tag('form'):
-        form = context.browser.find_by_tag('form').first()
+    if context.browser.url == context.get_url('driver_edit', driver.pk) and context.browser.find_by_tag('form'):
+        form = context.browser.find_by_tag('form').first
         for h in context.table.headings:
             context.browser.fill(h, context.table[0][h])
         form.find_by_value('Submit').first.click()
 
 
-@when(u'I edit current driver')
-def step_impl(context):
-    context.browser.find_link_by_text('edit').click()
-    context.browser.visit(context.get_url('driver_edit'))
-    form = context.browser.find_by_tag('form').first
-    for h in context.table.headings:
-        context.browser.fill(h, context.table[0][h])
-    form.find_by_value('Submit').first.click()
+

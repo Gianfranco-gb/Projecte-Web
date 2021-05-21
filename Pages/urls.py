@@ -36,7 +36,7 @@ urlpatterns = [
     path('scuderia/<int:pk>', scuderia_detail.as_view(), name="scuderia_detail"),
     path('driver/<int:pk>', driver_detail.as_view(), name="driver_detail"),
     path('season/<int:pk>', season_detail.as_view(), name="season_detail"),
-    path('stats/<int:pk>', stats_detail.as_view(), name="stat_detail"),
+    path('stats/<int:pk>', stats_detail.as_view(), name="stats_detail"),
 
     path('circuit/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
@@ -53,19 +53,19 @@ urlpatterns = [
     path('scuderia/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
              model=Scuderia,
-             form_class=ScuderiaForm, template_name='register.html'),
+             form_class=ScuderiaForm, template_name='scuderia/form_scuderia.html'),
          name='scuderia_edit'),
 
     path('season/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
              model=Season,
-             form_class=SeasonForm, template_name='register.html'),
+             form_class=SeasonForm, template_name='season/form_season.html'),
          name='season_edit'),
 
     path('stats/<int:pk>/edit',
          LoginRequiredCheckIsOwnerUpdateView.as_view(
              model=StatisticsDriver,
-             form_class=StatForm, template_name='register.html'),
+             form_class=StatForm, template_name='stats/form_stats.html'),
          name='stats_edit'),
 
     path('circuit/<int:pk>/delete', views.circuit_delete_view, name='circuit_delete'),
@@ -74,10 +74,4 @@ urlpatterns = [
     path('season/<int:pk>/delete', views.season_delete_view, name='season_delete'),
     path('stats/<int:pk>/delete', views.stat_delete_view, name='stats_delete'),
 
-
-    path('circuit/<int:pk>/delete', views.circuit_delete_view, name='circuit_delete'),
-    path('driver/<int:pk>/delete', views.driver_delete_view, name='driver_delete'),
-    path('scuderia/<int:pk>/delete', views.scuderia_delete_view, name='scuderia_delete'),
-    path('season/<int:pk>/delete', views.season_delete_view, name='season_delete'),
-    path('stats/<int:pk>/delete', views.stat_delete_view, name='stats_delete'),
 ]

@@ -14,4 +14,4 @@ Feature: Register scuderia
     Then I'm viewing the details page for scuderia by "user"
       | name     | main_color | principalDriver | secondaryDriver | num_championships |
       | Mercedes | Black      | Lewis Hamilton  | Valtteri Bottas | 7                 |
-    And there's 1 scuderia registered
+    And There is 1 scuderia

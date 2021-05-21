@@ -20,4 +20,9 @@ class Migration(migrations.Migration):
             name='year',
             field=models.CharField(max_length=200),
         ),
+        migrations.AddField(
+            model_name='season',
+            name='scuderia_champion',
+            field=models.CharField(max_length=200),
+        ),
     ]
