@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block page_content %}
+<span vocab="http://schema.org/" typeof="Person">
     <ul>
         <div class="card-header-tabs">
             <h3>
@@ -19,34 +20,46 @@
             </h3>
         </div>
         <div class="card-body">
-            <h5>
-                <b>Name: </b>
-                {{ driver.name }}
-            </h5>
+            <span property="givenName">
+                <h5>
+                    <b>Name: </b>
+                    {{ driver.name }}
+                </h5>
+            </span>
             <h5>
                 <b>Age: </b>
                 {{ driver.age }}
             </h5>
-            <h5>
-                <b>Nationality: </b>
-                {{ driver.nationality }}
-            </h5>
-            <h5>
-                <b>Scuderia: </b>
-                {{ driver.scuderia }}
-            </h5>
-            <h5>
-                <b>Height: </b>
-                {{ driver.height }}
-            </h5>
-            <h5>
-                <b>Weight: </b>
-                {{ driver.weight }}
-            </h5>
+            <span property="nationality">
+                <h5>
+                    <b>Nationality: </b>
+                    {{ driver.nationality }}
+                </h5>
+            </span>
+            <span property="memberOf" typeof="Organization">
+              <span property="legalName">
+                  <h5>
+                      <b>Scuderia: </b>
+                      {{ driver.scuderia }}
+                  </h5>
+              </span>
+            </span>
+            <span property="height">
+                <h5>
+                    <b>Height: </b>
+                    {{ driver.height }}
+                </h5>
+            </span>
+            <span property="weight">
+                <h5>
+                    <b>Weight: </b>
+                    {{ driver.weight }}
+                </h5>
+            </span>
         </div>
     </ul>
     <div align="center" >
         <a href="{% url 'driver' %}" type="button" class="btn btn-dark" style="background-color:gray">Return</a>
     </div>
-
+</span>
 {% endblock %}
