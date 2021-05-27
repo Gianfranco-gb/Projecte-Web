@@ -11,7 +11,7 @@
 
 {% endblock %}
 {% block page_content %}
- <span vocab="http://schema.org/" typeof="Car">
+ <span vocab="http://schema.org/" typeof="Organization">
     <ul>
         <div class="card-header-tabs">
             <h3>
@@ -19,31 +19,32 @@
             </h3>
         </div>
         <div class="card-body">
-            <span property="name">
+            <span property="legalname">
                 <h5>
                     <b>Name: </b>
                     {{ scuderia.name }}
                 </h5>
             </span>
-            <span property="color">
+            <span property="description">
                 <h5>
                     <b>Main color: </b>
                     {{ scuderia.main_color }}
                 </h5>
             </span>
-            <span property="description">
+
+            <span property="member">
                 <h5>
                     <b>Principal Driver: </b>
                     {{ scuderia.principalDriver }}
                 </h5>
             </span>
-            <span property="description">
+            <span property="member">
                 <h5>
                     <b>Secondary Driver: </b>
                     {{ scuderia.secondaryDriver }}
                 </h5>
             </span>
-            <span property="description">
+            <span property="awards">
                 <h5>
                     <b>Number of championships: </b>
                     {{ scuderia.num_championships }}
